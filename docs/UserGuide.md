@@ -79,7 +79,7 @@ If you are an experienced user, we have provided a convenient [Summary of Comman
    | `delete 3` | Deletes the 3rd contact in the list (i.e. deletes `Charlotte Oliveiro`) |
    | `exit` | Exits the application |
 
-1. Refer to the [Features](#features) section below for the full list of commands and their descriptions.
+1. Refer to the [Features](#feature-summary) section below for the full list of commands and their descriptions.
 
 [Return to Table of Contents](#table-of-contents)
 
@@ -216,7 +216,7 @@ If you are an experienced user, we have provided a convenient [Summary of Comman
 
 **Purpose**: Adds a client as contact to ClientBook.
 
-**Format**: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [i/POLICY_ID[>POLICY_URL]] [t/TAG]…​`
+**Format**: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [i/POLICY_ID[>POLICY_URL]]…​ [t/TAG]…​`
 
 <div markdown="block" class="alert alert-info">
 :bulb: 
