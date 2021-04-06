@@ -564,7 +564,7 @@ If a parameter is expected only once in the command, but you specified it multip
 **Format**: `addshortcut sn/SHORTCUT_NAME sc/SHORTCUT_COMMAND`
 
 * Adds a shortcut named `SHORTCUT_NAME` to the shortcut library and assigns a valid command `SHORTCUT_COMMAND` to it.
-* The specified `SHORTCUT_NAME` must be alphanumeric and must not already exist the shortcut library.
+* The specified `SHORTCUT_NAME` must be alphanumeric and must not already exist in the shortcut library.
 * The specified `SHORTCUT_COMMAND` must be a valid command.
 
 **Examples**:
@@ -582,7 +582,7 @@ If a parameter is expected only once in the command, but you specified it multip
 **Format**: `editshortcut sn/SHORTCUT_NAME sc/SHORTCUT_COMMAND`
 
 * Finds a shortcut named `SHORTCUT_NAME` in the shortcut library and replaces its existing command with the provided valid command `SHORTCUT_COMMAND`.
-* The specified `SHORTCUT_NAME` must be alphanumeric and must exist the shortcut library.
+* The specified `SHORTCUT_NAME` must be alphanumeric and must exist in the shortcut library.
 * The specified `SHORTCUT_COMMAND` must be a valid command.
 
 **Examples**:
