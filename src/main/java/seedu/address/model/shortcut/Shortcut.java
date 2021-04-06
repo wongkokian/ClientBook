@@ -14,9 +14,9 @@ import seedu.address.logic.parser.exceptions.ParseException;
  */
 public class Shortcut {
 
-    public static final String MESSAGE_NAME_CONSTRAINTS = "Shortcut names should be alphanumeric and should not be "
-            + "the same as existing commands";
-    public static final String MESSAGE_COMMAND_CONSTRAINTS = "Shortcut commands should be valid";
+    public static final String MESSAGE_NAME_CONSTRAINTS = "Shortcut names should be alphanumeric without any spaces";
+    public static final String MESSAGE_COMMAND_CONSTRAINTS = "Shortcut commands must be a valid ClientBook command. "
+            + "Examples: sort -n -asc, listshortcut, find t/friend";
     public static final String VALIDATION_REGEX = "\\p{Alnum}+";
 
     public final String shortcutName;
