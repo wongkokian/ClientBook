@@ -467,8 +467,8 @@ Below is an example usage scenario and how the information and data are passed a
 `LogicManager`.
 
 **Step 3.** `ClientBookParser` then parses the full `commandText`, returning a `Command`. In this case, it would return 
-a `AddShortcutCommand`, which would contain the name of the shortcut (in this case "aia"), followed by the command that 
-the name will be mapped to (in this case "find i/aia").
+a `AddShortcutCommand`, which would contain the name of the shortcut (in this case `aia`), followed by the command that 
+the name will be mapped to (in this case `find i/aia`).
 
 **Step 4.** `AddShortcutCommand`then executes, storing the shortcut in the shortcut library and returning a 
 `CommandResult`. This `CommandResult` contains the feedback string message which indicates to the user whether the 
