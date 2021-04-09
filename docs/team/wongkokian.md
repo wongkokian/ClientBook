@@ -31,7 +31,9 @@ Given below are my contributions to the project.
         * Added documentation for `find` and `shortcut` commands: [\#44](https://github.com/AY2021S2-CS2103T-W15-2/tp/pull/44), [\#95](https://github.com/AY2021S2-CS2103T-W15-2/tp/pull/95)
         * Removed documentation of `clear`: [\#104](https://github.com/AY2021S2-CS2103T-W15-2/tp/pull/104)
     * Developer Guide:
-        * Added implementation details of the `find` and `shortcut` features.
+        * Modified UML diagrams to include classes associated with the `shortcut` feature: [\#185](https://github.com/AY2021S2-CS2103T-W15-2/tp/pull/185)
+        * Added implementation details of the `shortcut` feature including sequence diagram: [\#185](https://github.com/AY2021S2-CS2103T-W15-2/tp/pull/185)
+        * Added use cases for the `shortcut` feature: [\#185](https://github.com/AY2021S2-CS2103T-W15-2/tp/pull/185)
 
 * **Community**:
     * PRs reviewed (with non-trivial review comments): [\#21](https://github.com/AY2021S2-CS2103T-W15-2/tp/pull/21), [\#45](https://github.com/AY2021S2-CS2103T-W15-2/tp/pull/45), [\#55](https://github.com/AY2021S2-CS2103T-W15-2/tp/pull/55), [\#61](https://github.com/AY2021S2-CS2103T-W15-2/tp/pull/61), [\#85](https://github.com/AY2021S2-CS2103T-W15-2/tp/pull/85), [\#95](https://github.com/AY2021S2-CS2103T-W15-2/tp/pull/95), [\#99](https://github.com/AY2021S2-CS2103T-W15-2/tp/pull/99)
