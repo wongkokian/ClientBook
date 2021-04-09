@@ -21,6 +21,7 @@ package Command {
 Class XYZCommand
 Class CommandResult
 Class "{abstract}\nCommand" as Command
+Enum "<<enumeration>>\nCommandWord"
 }
 
 Interface Logic <<Interface>>
