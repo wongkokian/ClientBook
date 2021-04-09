@@ -20,13 +20,17 @@ StorageManager o-right-> UserPrefsStorage
 StorageManager o--> AddressBookStorage
 StorageManager o--> ShortcutLibraryStorage
 
+Storage -|> UserPrefsStorage
+Storage -|> AddressBookStorage
+
 JsonUserPrefsStorage .left.|> UserPrefsStorage
 JsonAddressBookStorage .up.|> AddressBookStorage
 JsonShortcutLibraryStorage .left.|> ShortcutLibraryStorage
-JsonAddressBookStorage .down.> JsonSerializableAddressBookStorage
-JsonSerializableAddressBookStorage .right.> JsonSerializablePerson
-JsonSerializablePerson .right.> JsonAdaptedTag
-JsonSerializablePerson .up.> JsonAdaptedInsurancePolicy
+
+JsonAddressBookStorage .down.> JsonSerializableAddressBook
+JsonSerializableAddressBook .right.> JsonAdaptedPerson
+JsonAdaptedPerson .right.> JsonAdaptedTag
+JsonAdaptedPerson .up.> JsonAdaptedInsurancePolicy
 JsonShortcutLibraryStorage .right.> JsonSerializableShortcutLibrary
 JsonSerializableShortcutLibrary .down.> JsonAdaptedShortcut
 
