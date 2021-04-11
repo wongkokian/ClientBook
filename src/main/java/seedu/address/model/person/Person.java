@@ -179,8 +179,7 @@ public class Person {
                 && otherPerson.getEmail().equals(getEmail())
                 && otherPerson.getAddress().equals(getAddress())
                 && otherPerson.getTags().equals(getTags())
-                && otherPerson.getPolicies().equals(getPolicies())
-                && otherPerson.getMeetings().equals(getMeetings());
+                && otherPerson.getPolicies().equals(getPolicies());
     }
 
     @Override
