@@ -666,7 +666,9 @@ and as many times as you want, which will save you from the hassle of having to 
 
 <p align="center"><img src="images/shortcut-example-3.png"></p>
 
-<br>
+[Return to Table of Contents](#table-of-contents)
+<br><br>
+
 
 ### <span style="color:#c9a500"><code>addshortcut</code>: Add shortcut</span>
 
