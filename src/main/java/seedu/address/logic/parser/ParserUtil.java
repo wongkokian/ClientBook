@@ -233,18 +233,12 @@ public class ParserUtil {
 
     /**
      * Parses a {@code String policy} into a {@code InsurancePolicy}.
-     * Leading and trailing whitespaces will be trimmed.
-     *
-     * @throws ParseException if the given {@code policy} is invalid.
+     * Leading and trailing whitespaces will be trimmed from the initial input.
+     * Leading and trailing whitespaces will also be trimmed from the input meant as URL.
      */
-    public static InsurancePolicy parsePolicy(String policy) throws ParseException {
+    private static InsurancePolicy parsePolicy(String policy) {
         requireNonNull(policy);
         String trimmedPolicy = policy.trim();
-
-        if (!InsurancePolicy.isValidPolicyId(trimmedPolicy)) {
-            throw new ParseException(InsurancePolicy.MESSAGE_CONSTRAINTS);
-        }
-
         String[] idAndUrl = trimmedPolicy.split(">", 2);
 
         if (!InsurancePolicy.hasPolicyUrl(idAndUrl)) {
@@ -253,14 +247,15 @@ public class ParserUtil {
 
         // Else contains URL too
         String policyId = idAndUrl[0];
-        String policyUrl = idAndUrl[1];
+        String policyUrl = idAndUrl[1].trim();
+
         return new InsurancePolicy(policyId, policyUrl);
     }
 
     /**
-     * Parses {@code Collection<String> policies} into a {@code List<InsurancePolicy>}.
+     * Parses {@code Collection<String> policies} into a {@code Set<InsurancePolicy>}.
      */
-    public static List<InsurancePolicy> parsePolicies(Collection<String> policies) throws ParseException {
+    public static Set<InsurancePolicy> parsePolicies(Collection<String> policies) {
         requireNonNull(policies);
         final Set<InsurancePolicy> policySet = new HashSet<>();
         for (String policy : policies) {
@@ -268,10 +263,9 @@ public class ParserUtil {
             InsurancePolicy parsedPolicy = parsePolicy(policy);
             policySet.add(parsedPolicy);
         }
-        final List<InsurancePolicy> policyList = new ArrayList<>();
-        policyList.addAll(policySet);
-        return policyList;
+        return policySet;
     }
+
     /**
      * Parses a {@code String meeting} into a {@code meeting}.
      * Leading and trailing whitespaces will be trimmed.

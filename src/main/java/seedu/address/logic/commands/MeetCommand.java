@@ -33,13 +33,21 @@ public class MeetCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Schedule a meeting with a client.\n"
             + "Parameters: INDEX (must be a positive integer) "
             + "[-ACTION] (add, delete, clear) "
-            + "DATE (DD.MM.YYYY) START (HH:MM) END (HH:MM) PLACE\n"
-            + "END must be after START on the same DATE.\n"
+            + "DATE (dd.MM.yyyy) START_TIME (HH:mm) END_TIME (HH:mm) PLACE\n"
+            + "END_TIME must be after START_TIME on the same DATE.\n"
             + "Example: " + COMMAND_WORD + " 3 -add 18.05.2021 15:00 18:00 MRT";
+    public static final String MESSAGE_INVALID_DATE =
+            "DATE should be in dd.MM.yyyy format and should be valid.\n"
+            + "Example: 18.05.2021";
+    public static final String MESSAGE_INVALID_TIME =
+            "START_TIME and END_TIME should be in HH:mm format and "
+            + "END_TIME must be after START_TIME on the same DATE.\n"
+            + "Example: 15:00 18:00";
 
     public static final String MESSAGE_CLASHING_MEETING = "The meeting clashes with \n%1$s";
     public static final String MESSAGE_ADD_MEETING = "The meeting is added to the client %1$s";
     public static final String MESSAGE_DELETE_MEETING = "The meeting is deleted from the client %1$s";
+    public static final String MESSAGE_DELETE_FAIL = "The meeting does not exist and is not deleted from the client";
     public static final String MESSAGE_CLEAR_MEETING = "All meetings are cleared from the client.";
 
     private final Index index;
@@ -50,7 +58,8 @@ public class MeetCommand extends Command {
     private final String place;
 
     /**
-     * Create a MeetCommand to change the meeting to the specified {@code Place} {@code Date} {@code Time}
+     * Create a MeetCommand to modify the meeting of
+     * the specified {@code Date} {@code Start} {@code End} {@code Place}
      *
      * @param index of the client in the list
      * @param action of the command
@@ -142,7 +151,7 @@ public class MeetCommand extends Command {
      * @param meeting details of the meeting
      * @return Person without the meeting
      */
-    public static Person deleteMeeting(Person person, Meeting meeting) {
+    public static Person deleteMeeting(Person person, Meeting meeting) throws CommandException {
         Name updatedName = person.getName();
         Phone updatedPhone = person.getPhone().get();
         Email updatedEmail = person.getEmail().get();
@@ -150,7 +159,10 @@ public class MeetCommand extends Command {
         Set<Tag> updatedTags = person.getTags();
         List<InsurancePolicy> updatedPolicies = person.getPolicies();
         List<Meeting> updatedMeeting = new ArrayList<>(person.getMeetings());
-        updatedMeeting.remove(meeting);
+
+        if (!updatedMeeting.remove(meeting)) {
+            throw new CommandException(String.format(MESSAGE_DELETE_FAIL, meeting));
+        }
 
         return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress,
                 updatedTags, updatedPolicies, updatedMeeting);
@@ -200,7 +212,7 @@ public class MeetCommand extends Command {
                     boolean startEnd = (meetingStart.isBefore(meetStart) && meetingEnd.isAfter(meetEnd));
 
                     if (sameStart || sameEnd || betweenStart || betweenEnd || startEnd) {
-                        builder.append(meet.toString()).append("\n");
+                        builder.append(person.getName()).append("  ").append(meet.toString()).append("\n");
                     }
                 }
             }

@@ -188,6 +188,7 @@ The `Model`,
 
 * stores a `UserPref` object that represents the user’s preferences.
 * stores the address book data.
+* stores the shortcut library data.  
 * exposes an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * does not depend on any of the other three components.
 
@@ -202,6 +203,7 @@ The `Model`,
 The `Storage` component,
 * can save `UserPref` objects in JSON format and read it back.
 * can save the address book data in JSON format and read it back.
+* can save the shortcut library data in JSON format and read it back.
 
 <br><br>
 
@@ -215,17 +217,17 @@ This section describes some noteworthy details on how certain features are imple
 
 #### Motivation
 
-It would not be a good user experience if there was no easy way for the user to quickly retrieve the insurance policy URLs 
-from ClientBook. Since the application's contact card interface does not support direct copy-paste functionality, a new approach 
+It would not be a good user experience if there is no easy way for the user to quickly retrieve the insurance policy URLs 
+from ClientBook. Since the application's contact card user interface does not support direct copy-paste functionality, a new approach 
 to display and facilitate retrieval of this essential information had to be implemented. Below is a succinct but complete 
-explanation of how the chosen approach, which is to implement a `PolicyCommand` `Command`, works. Other alternatives 
+explanation of how the chosen approach, which is to implement a `PolicyCommand`, works. Other alternatives 
 we considered and the design considerations are further elaborated below.
 
 #### Implementation
 
 A new command `PolicyCommand` was created. It extends the abstract class `Command`, overriding and implementing its `execute` 
 method. When `PolicyCommand#execute()` is called, all the insurance policies and their associated policy URLs are fetched from the 
-selected `Person` client through `Person#getPersonNameAndAllPoliciesInString()`.
+selected `Person` through `Person#getPersonNameAndAllPoliciesInString()`.
 
 Below is an example usage scenario and how the information and data are passed around at each step.
 
@@ -236,7 +238,7 @@ Below is an example usage scenario and how the information and data are passed a
 **Step 3.** `ClientBookParser` then parses the full `commandText`, returning a `Command`. In this case, it would return a 
 `PolicyCommand`, which would contain the index of the selected client in the displayed list (which in this case is 1).
 
-**Step 4.** `PolicyCommand`then executes, returning a `CommandResult`. This `CommandResult` contains the concatenated string 
+**Step 4.** `PolicyCommand#execute()` is called by `LogicManager`, returning a `CommandResult`. This `CommandResult` contains the concatenated string 
 of all the insurance policies and their associated URLs as the feedback. The `CommandResult` also contains a `boolean` value 
 indicating whether a popup window is to be displayed. This `boolean` value can be retrieved using the method `CommandResult#isShowPolicies()`.
 
@@ -256,12 +258,12 @@ its methods strictly resembled those of its fellow `Command` classes.
 
 * **Alternative 1 (current choice):** Display the insurance policies and their URLs in a popup window, retrieve URL through a 'Copy URL button'
   * Have a popup window to display the insurance policies and their associated URLs.
-  * The window should also have a 'Copy URL' button similar to that in the 'help' window that appears then `help` is called.
+  * The window should also have a 'Copy URL' button similar to that in the 'help' window that appears when `help` is called.
   * Pros: Easy to implement a button.
-  * Cons: Not the best way to display a hyperlink/URL.
+  * Cons: Not the best way to display a URL.
     
 
-* **Alternative 2:** Display the insurance policies and their URls in a popup window, where the URLs upon click launches the browser
+* **Alternative 2:** Display the insurance policies and their URLs in a popup window, where the URLs launches the browser to the selected webpage upon click
   * Pros: More intuitive in terms of user experience.
   * Cons: Harder to implement.
 
@@ -363,15 +365,14 @@ parsing of its arguments and extensive testing should be done on the varying arg
 
 #### Motivation
 
-As an insurance agent, our target user is likely to have many clients' information and will like to have some ways to organise the
-information. Having a sort function for ClientBook will give the user a way to make the list of clients more organised.
+As an insurance agent, our target user may have many clients and might need a way to organise the list of clients in 
+ClientBook. Having a sort function will allow the user to sort the list of clients to make it more organised.
 
 #### Implementation
 
 A new command `SortCommand` was created. It extends the abstract class `Command`, overriding and implementing its `execute`
-method. When `SortCommand#execute()` is called, the list of clients is sorted through `ModelManager#updateSortedPersonList(Comparator)` 
-with the comparator created by the type and direction of sorting specified by the user.
-
+method. When `SortCommand#execute()` is called, a comparator will be created based on the attribute and direction specified
+by the user and `ModelManager#updateSortedPersonList(comparator)` is called to sort the list of clients.
 
 Below is an example usage scenario and how the information and data are passed around at each step.
 
@@ -379,14 +380,15 @@ Below is an example usage scenario and how the information and data are passed a
 
 **Step 2.** `MainWindow` receives the `commandText` (`sort -n -asc`), which is then executed by `LogicManager`.
 
-**Step 3.** `ClientBookParser` then parses the full `commandText`, returning a `Command`. In this case, it would return a 
-`SortCommand`, which would contain the type of the sorting algorithm (in this case by name), followed by
-the direction that the user intends to sort in (in this case ascending order).
+**Step 3.** `ClientBookParser` then parses the full `commandText`, returning a `Command`. In this case, it would return 
+a `SortCommand`, which would contain the attribute to be sorted (in this case name), followed by the direction that the 
+user intends to sort in (in this case ascending order).
 
-**Step 4.** `SortCommand`then executes, sorting the list of clients with a comparator created and returning a `CommandResult`. 
-This `CommandResult` contains the feedback string message which indicates to the user how the list of clients is sorted.
+**Step 4.** `LogicManager` then calls `SortCommand#execute()`, sorting the list of clients with the comparator created 
+by calling `ModelManager#updateSortedPersonList(comparator)` and returning a `CommandResult`. This `CommandResult` 
+contains the feedback string message which indicates to the user how the list of clients is sorted.
 
-**Step 5.** This `CommandResult` is passed back to `MainWindow`, which then displays the list after the sorting is done.
+**Step 5.** This `CommandResult` is passed back to `MainWindow`, which then displays the sorted list of clients.
 
 Below is a sequence diagram illustrating the flow of this entire process.
 
@@ -394,51 +396,54 @@ Below is a sequence diagram illustrating the flow of this entire process.
 
 #### Design Considerations
 
-The sort feature was designed such that the original list is modified so that the list will remain sorted even after other
-commands are executed. The list of clients in the existing data file `clientbook.json` is also sorted for the user to make
-the storage organised too.
+The sort feature was designed such that the original list of clients is modified and the list will remain modified after 
+other commands are executed. The list of clients in the existing data file `clientbook.json` is also modified for the 
+list in the storage organised too.
 
 <br>
 
-### Schedule a meeting with a client in ClientBook feature
+### Create a shortcut in ClientBook feature
 
 #### Motivation
 
-As an insurance agent, our target user is likely to have meetings with clients and will like to have some ways to store meetings'
-information. Having a meet function for ClientBook will give the user a way to schedule meetings with clients and also to check
-for any clashes between the new meeting and the stored meetings.
+As an insurance agent, our target user is likely to always be meeting up with clients to discuss about their portfolios 
+and may want to have a faster way to use ClientBook to avoid wasting the clients' time. Having a `Shortcut` feature for 
+ClientBook will give the user a way to be more efficient during meetings with clients.
 
 #### Implementation
 
-A new command `MeetCommand` was created. It extends the abstract class `Command`, overriding and implementing its `execute`
-method. When `MeetCommand#execute()` is called, either a meeting added, deleted or all meetings are cleared from a client.
-When a meeting is being added, there will be a check for clashes where if there are clashes, the meeting will be rejected.
+A new command `AddShortcutCommand` was created. It extends the abstract class `Command`, overriding and implementing its
+`execute` method. When `AddShortcutCommand#execute()` is called, a `Shortcut` is added to the `ShortcutLibrary`. When a 
+`Shortcut` is added, there will be a check for any existing `Shortcut`s with the same name.
 
 
 Below is an example usage scenario and how the information and data are passed around at each step.
 
-**Step 1.** The user types `meet 1 -add 20.06.2021 12:00 15:00 MRT` into the input box.
+**Step 1.** The user types `addshortcut sn/aia sc/find i/aia` into the input box.
 
-**Step 2.** `MainWindow` receives the `commandText` (`meet 1 -add 20.06.2021 12:00 15:00 MRT`), which is then executed by `LogicManager`.
+**Step 2.** `MainWindow` receives the `commandText` (`addshortcut sn/aia sc/find i/aia`), which is then executed by 
+`LogicManager`.
 
-**Step 3.** `ClientBookParser` then parses the full `commandText`, returning a `Command`. In this case, it would return a
-`MeetCommand`, which would contain the index of the selected client in the displayed list (in this case 1), followed by 
-the action of the meet command (in this case add) and then the date, start time, end time, place of the meetings (in this 
-case 20.06.2021 12:00 15:00 MRT).
+**Step 3.** `ClientBookParser` then parses the full `commandText`, returning a `Command`. In this case, it would return 
+a `AddShortcutCommand`, which would contain the name of the `Shortcut` (in this case `aia`), followed by the `Command` 
+mapped to the `Shortcut` (in this case `find i/aia`).
 
-**Step 4.** `MeetCommand`then executes, and returning a `CommandResult`.
-This `CommandResult` contains the feedback string message which indicates to the user which client's meeting has been modified.
+**Step 4.** `AddShortcutCommand`then executes, storing the `Shortcut` in the `ShortcutLibrary` and returning a 
+`CommandResult`. This `CommandResult` contains the feedback string message which indicates to the user whether the 
+specified `Shortcut` has been added successfully.
 
-**Step 5.** This `CommandResult` is passed back to `MainWindow`, which then displays the list after the meeting of the client is modified.
+**Step 5.** This `CommandResult` is passed back to `MainWindow` to be displayed to the user through the `ResultDisplay`.
 
 Below is a sequence diagram illustrating the flow of this entire process.
 
-<p align="center"><img src="images/MeetSequenceDiagram.png"></p>
+<p align="center"><img src="images/ShortcutSequenceDiagram.png"></p>
 
 #### Design Considerations
 
-The meet feature was designed such that there is a check for clashes so that the user would not need to worry for having 
-clashes between any meetings in ClientBook.
+The `Shortcut` feature was designed such that the `ShortcutLibrary` is stored separately from the `AddressBook` in 
+`shortcutlibrary.json`. Hence, there is minimal dependency between existing components and components of the `Shortcut` 
+feature. It was also implemented in a way that there are checks performed to detect duplicate `Shortcut`s and the 
+validity of the `Command`s mapped to the `Shortcut`s.
 
 <br>
 
@@ -583,11 +588,16 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | insurance agent                            | find clients by insurance policy    | find my clients who share the same insurance policy                    |
 | `* * *`  | insurance agent                            | link contact to portfolio      | access my clients' portfolio  easily                                                     |
 | `* * *`  | insurance agent                            | edit individual client details |                               |
+| `* * *`  | insurance agent                            | view all the insurance policies that a particular client signed with me | prepare the policy documents before meeting up with them   |
+| `* * *`  | busy insurance agent                       | change the policy ID of a policy co-owned by multiple clients | save time by not having to edit policy ID for each client individually   |
 | `* *`    | disorganised user                          | display only certain attributes queried| avoid cluttering the screen with unnecessary information               |
 | `* *`    | insurance agent                            | sort my clients                | see my clients in a more organized way                                 |
 | `* *`    | insurance agent on the go                  | lock ClientBook with a password| prevent the leakage of my clients' information                         |
 | `* *`    | insurance agent                            | schedule meetings with clients | check what meetings I have with my clients                             |
-| `*`      | busy insurance agents                      | have access to keyboard commands e.g. CTRL + J | minimize time spent typing.                         |
+| `* *`    | busy insurance agent                       | edit details common to multiple clients at once | save time by not having to edit details for each client individually |
+| `* *`    | busy insurance agent                       | delete multiple client contacts at once | save time by not having to delete each client individually |
+| `*`      | busy insurance agents                      | have access to keyboard commands e.g. CTRL + J | minimize time spent typing                         |
+| `*`      | tech-savvy user                            | create my own custom commands  | bookmark some commands which I frequently use into a simpler format.   |
 
 ### Use cases
 
@@ -735,15 +745,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 1a. The given attribute or direction is invalid.
+* 1a. One or more of the given arguments are invalid.
 
     * 1a1. ClientBook shows an error message.
 
       Use case resumes at step 1.
-
-* 2a. The list of clients is empty.
-
-  Use case ends.
 
 <br>
 
@@ -767,7 +773,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   Use case ends.
 
-* 3a. The given index, action, place, date or time is invalid.
+* 3a. One or more of the given arguments are invalid.
 
     * 3a1. ClientBook shows an error message.
 
@@ -812,6 +818,177 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 1a. User enters the incorrect current password that is used to lock ClientBook.
   
     * 1a1. ClientBook shows an error message. Use case resumes at step 1.
+    
+<br>
+
+**Use case 11: Delete a shortcut**
+
+**MSS**
+
+1.  User requests to delete a specific shortcut in the shortcut library.
+
+2.  ClientBook deletes the shortcut.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The given shortcut name is invalid.
+
+    * 1a1. ClientBook shows an error message.
+
+      Use case resumes at step 1.
+
+<br>
+
+**Use case 12: Add a shortcut**
+
+**MSS**
+
+1.  User requests to add a shortcut.
+
+2.  ClientBook adds the shortcut.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. At least one of the given arguments is invalid.
+
+    * 1a1. ClientBook shows an error message.
+    
+      Use case resumes at step 1.
+
+<br>
+
+**Use case 13: List all shortcuts**
+
+**MSS**
+
+1.  User requests to list shortcuts.
+
+2.  ClientBook shows the shortcut library.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The shortcut library is empty.
+
+    * 1a1. ClientBook shows empty shortcut library message.
+
+      Use case ends.
+
+<br>
+
+**Use case 14: Edit a shortcut**
+
+**MSS**
+
+1.  User requests to edit a specific shortcut in the shortcut library.
+
+2.  ClientBook edits the shortcut.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. At least one of the given arguments is invalid.
+
+    * 1a1. ClientBook shows an error message.
+
+      Use case resumes at step 1.
+    
+<br>
+
+**Use case 15: Clear the shortcut library**
+
+**MSS**
+
+1.  User requests to clear the shortcut library.
+
+2.  ClientBook clears the shortcut library.
+
+    Use case ends.
+
+<br>
+
+**Use case 16: View insurance policies of selected client**
+
+**MSS**
+
+1.  User requests to display policies associated with a selected client.
+
+2.  ClientBook shows all policies associated with this client.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The selected client has no policies.
+
+    * 1a1. ClientBook shows message indicating that no policies are associated with the selected client.
+
+      Use case ends.
+
+* 1b. One or more of the given arguments are invalid.
+
+    * 1b1. ClientBook shows an error message.
+
+      Use case resumes at step 1.
+
+<br>
+
+**Use case 17: Retrieve URL for policy**
+
+**MSS**
+
+1.  User <ins>views insurance policies of selected client (UC16)</ins>.
+
+2.  User retrieves URL from ClientBook.
+
+    Use case ends.
+
+<br>
+
+**Use case 18: Batch edit client details**
+
+**MSS**
+
+1.  User requests to change the details of several clients.
+
+2.  ClientBook updates the details.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. One or more of the given arguments are invalid.
+
+    * 1a1. ClientBook shows an error message.
+
+      Use case resumes at step 1.
+
+<br>
+
+**Use case 19: Batch delete client contacts**
+
+**MSS**
+
+1.  User requests to delete several clients at once.
+
+2.  ClientBook deletes the client contacts.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. One or more of the given arguments are invalid.
+
+    * 1a1. ClientBook shows an error message.
+
+      Use case resumes at step 1.
+
 
 ### Non-Functional Requirements
 
