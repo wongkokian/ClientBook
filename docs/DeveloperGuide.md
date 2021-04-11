@@ -895,7 +895,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 1a. The given arguments are invalid.
+* 1a. At least one of the given arguments are invalid.
 
     * 1a1. ClientBook shows an error message.
     
@@ -935,7 +935,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 1a. The given arguments are invalid.
+* 1a. At least one of the given arguments are invalid.
 
     * 1a1. ClientBook shows an error message.
 

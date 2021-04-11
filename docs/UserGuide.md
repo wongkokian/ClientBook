@@ -628,7 +628,7 @@ You are an insurance agent and you have many client contacts stored inside of Cl
 you to manage your clients' policies and you would like a way to view all your clients' policies while hiding other 
 additional information (e.g. address, email, phone). You know that you can do so with the `list -i` command. However, 
 you would like a faster way to do it because you have to use it frequently, so you decided to create a 
-shortcut named `li` for it.
+shortcut named `li` to perform the same action as `list -i`.
 
 <br>
 
@@ -636,35 +636,19 @@ shortcut named `li` for it.
 
 **Adding the shortcut using the command** `addshortcut sn/li sc/list -i`.
 
-This command can be broken down into 2 simple parts. We have just added a shortcut with the following details:
-* Shortcut Name: `li`
-* Shortcut Command: `list -i`
-
-Now, this shortcut is saved to your shortcut library.
-
-<p align="center"><img src="images/shortcut-example-1.png"></p>
+This command creates a shortcut which performs `list -i` everytime you type `li` in the command box, and it is saved to 
+your shortcut library.
 
 <br>
 
 <p><b>Step 2.</b></p> 
-
-**Viewing your shortcut library using the command** `listshortcut`.
-
-This command allows you to view your shortcut library in a separate window that pops up. It contains all shortcuts that you have previously created, 
-which includes the shortcut `li` which you have just created.
-
-<p align="center"><img src="images/shortcut-example-2.png"></p>
-
-<br>
-
-<p><b>Step 3.</b></p> 
 
 **Using the shortcut using the command** `li`.
 
 As you have saved this shortcut in the shortcut library, you may now use `li` to perform the command `list -i` anytime 
 and as many times as you want, which will save you from the hassle of having to type `list -i` everytime.
 
-<p align="center"><img src="images/shortcut-example-3.png"></p>
+<p align="center"><img src="images/shortcut-example.png"></p>
 
 [Return to Table of Contents](#table-of-contents)
 <br><br>
@@ -681,8 +665,11 @@ and as many times as you want, which will save you from the hassle of having to 
 * The specified `SHORTCUT_COMMAND` must be a valid ClientBook command (e.g. `find n/alex`).
 
 **Examples**:
-* Add a shortcut named `sna` to represent the command `sort -n -asc` (sort list by name in ascending order) in the shortcut library.
-    * `addshortcut sn/sna sc/sort -n -asc`
+* Add a shortcut named `li` to represent the command `list -i` (filter all client information to show policy details 
+  only) in the shortcut library.
+    * `addshortcut sn/li sc/list -i`
+
+![addshortcut](images/addshortcut.png)
 
 [Return to Table of Contents](#table-of-contents)
 <br><br>
