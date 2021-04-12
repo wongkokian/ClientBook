@@ -258,6 +258,11 @@ exists and editing a client to have the same information as an existing client i
 <div style="page-break-before:always"></div>
 <table>
   <tr>
+    <td> <b>Attribute</b> </td>
+    <td> <b>Identifier(s)</b> </td>
+    <td> <b>Notes/Restrictions</b> </td>
+  </tr>
+  <tr>
     <td> Email </td>
     <td> <code>e</code> </td>
     <td><ul><li>Should be of the form <code>name@email.com</code></li></ul>
@@ -293,6 +298,13 @@ exists and editing a client to have the same information as an existing client i
         <ul><li>A client should not have duplicate insurance policies</li></ul>
         <ul><li>If duplicate insurance policies are entered in a command, only 1 will be added to the client</li></ul>
     </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td> <b>Attribute</b> </td>
+    <td> <b>Identifier(s)</b> </td>
+    <td> <b>Notes/Restrictions</b> </td>
   </tr>
   <tr>
     <td> Meeting </td>
