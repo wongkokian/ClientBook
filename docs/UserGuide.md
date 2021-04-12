@@ -419,6 +419,10 @@ a client, by typing `-MODE` to specify an editing mode after a policy number.
 :exclamation: **Caution**: Existing values will be **replaced** with the input values.
 </div>
 
+[Return to Table of Contents](#table-of-contents)
+
+<div style="page-break-before:always"></div>
+
 **Examples**:
 *  Edit the phone number and email address of the 1st client to be `91234567` and `johndoe@example.com` respectively.
     * `edit 1 p/91234567 e/johndoe@example.com`
@@ -431,8 +435,6 @@ a client, by typing `-MODE` to specify an editing mode after a policy number.
 *  Modify the policy id of the 1st client from `Pol#12345` to `Pol#54321`.
     * `edit 1 i/Pol#12345;Pol#54321 -modify`
 
-[Return to Table of Contents](#table-of-contents)
-<br><br>
 
 ### <span style="color:#b573c9"><code>delete</code>: Delete client contact</span>
 
@@ -446,6 +448,9 @@ a client, by typing `-MODE` to specify an editing mode after a policy number.
 
 **Examples**:
 * `delete 2` deletes the 2nd client in the currently displayed list.
+
+[Return to Table of Contents](#table-of-contents)
+<div style="page-break-before:always"></div>
   <br><br>
 * To easily delete a specific client "Charlotte Chan", `delete` can be used in conjunction with `find`.
     * First, use `find n/Charlotte Chan`. Assuming there is only one Charlotte Chan in the client book, she will be the 
@@ -453,7 +458,6 @@ a client, by typing `-MODE` to specify an editing mode after a policy number.
     * After we get the filtered list, use `delete 1` to delete the client at index 1, which is 
     Charlotte Chan after the above command.
 
-[Return to Table of Contents](#table-of-contents)
 
 ### <span style="color:#b573c9"><code>batch</code>: Execute commands in batch</span>
 
@@ -469,12 +473,12 @@ enter the same command multiple times.
 * Each index in `INDICES` must be 1 or higher, and less than or equal to the index of the last item in the displayed list.
 * There must be no repeat index in `INDICES`.
 * The optional `ARGUMENTS` input is only applicable if the `COMMAND` is `edit`.
-<div style="page-break-before:always"></div>
 * For `edit`, you can only batch edit the following attributes:
     * phone number
     * address
     * tags
     * insurance policies
+
 
 <div markdown="block" class="alert alert-info">
 :bulb: 
@@ -482,6 +486,9 @@ enter the same command multiple times.
 The same rules apply when editing clients' phone number and address! <br>
 If a parameter is expected only once in the command, but you specified it multiple times, **only the last occurrence** of the parameter will be taken. 
 </div>
+[Return to Table of Contents](#table-of-contents)
+
+<div style="page-break-before:always"></div>
 
 **Examples**:
 * Updating the particulars of clients belonging to the same family and owning the same insurance policy.
@@ -505,15 +512,20 @@ If a parameter is expected only once in the command, but you specified it multip
 * Past meetings are allowed to be added to clients for archival purposes.
 * There will be a check for clashes between meetings when adding a new meeting.
 
-[Return to Table of Contents](#table-of-contents)
 
-<div style="page-break-before:always"></div>
+
+
 **Examples**:
 * Add a meeting for a specific client and there are no clashes.
     * `meet 5 -add 20.05.2021 15:00 16:00 MRT`
       
       ![meet-clash](images/meet-add.png)
-<br><br>
+      
+[Return to Table of Contents](#table-of-contents)
+
+
+<div style="page-break-before:always"></div>
+
 * Add a meeting for a specific client but there are clashes.
     * `meet 3 20.02.2021 12:00 15:00 KENT RIDGE MRT`
       
