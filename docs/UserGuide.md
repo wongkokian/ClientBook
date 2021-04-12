@@ -3,7 +3,9 @@ layout: page
 title: User Guide
 ---
 
-# ClientBook <img src="images/logo.png"></p>
+<img align="left" src="images/logo.png" height="50" width="50"> 
+
+# ClientBook
 
 ClientBook is an application for insurance agents to manage client contacts, optimized for use with just a keyboard,
 but still offering a graphical interface for ease of viewing of client contacts. The purpose of ClientBook is to help 
@@ -27,12 +29,12 @@ tasks with our minimal yet essential set of contact management features.<br>
 
 The purpose of this user guide is to help you, the user get started with using ClientBook as well as to help you to get familiarised
 with the features that it has to offer so that you can become comfortable with using it in your day-to-day operations as an insurance agent.
-
+<div style="page-break-before:always"></div> 
 ## How to Use This User Guide
 If you are a new user, you can start with the [Quick Start](#quick-start) section to get ClientBook running. After that,
 we have also provided an [Example Usage](#example-usage) section to help you get familiarised with ClientBook.
 If you are an experienced user, we have provided a convenient [Summary of Commands](#summary-of-commands) at the end of this user guide.
-
+<div style="page-break-before:always"></div> 
 ## Table of Contents 
 
 Please use the table of contents to navigate through the user guide quickly. ClientBook's commands are grouped into 
@@ -40,8 +42,6 @@ Please use the table of contents to navigate through the user guide quickly. Cli
 <span style="color:#c93640">**contact viewing**</span>,
 <span style="color:#c9a500">**shortcuts**</span> and 
 <span style="color:#3cb44b">**general**</span> commands.
-
-
 
 * [**1.** Quick Start](#quick-start)
 * [**2.** Example Usage](#example-usage)
@@ -79,32 +79,23 @@ Please use the table of contents to navigate through the user guide quickly. Cli
 * [**6.** Summary of Commands](#summary-of-commands)
 * [**7.** Glossary](#glossary)
 * [**8.** Contact Us](#contact-us)
-
-
+<div style="page-break-before:always"></div>
 ## Quick Start
 
 The quick start section provides a tutorial which will guide you through the steps needed to get ClientBook running.
-
-<br>
 
 <p><b>Step 1.</b></p>
 
 Ensure you have Java `11` or above installed in your Computer.
    * To check if you have this installed or for instructions on how to install, refer to our FAQ [here](#frequently-asked-questions).
 
-<br>
-
 <p><b>Step 2.</b></p>
 
 Download the latest `clientbook.jar` [here](https://github.com/AY2021S2-CS2103T-W15-2/tp/releases).
-   
-<br>
 
 <p><b>Step 3.</b></p>
 
 Copy the file to the folder (we will be referring to this folder as the **_home folder_**) where you want to store the ClientBook application and your client information.
-
-<br>
 
 <p><b>Step 4.</b></p>
 
@@ -114,8 +105,6 @@ Double-click the downloaded `clientbook.jar` file in your home folder to start t
     
         <p align="center"><img src="images/Ui-annotate.png"></p>
         <p align="center">Graphical User Interface of ClientBook.</p>
-    
-<br>
 
 <p><b>Step 5.</b></p>
 
@@ -136,7 +125,7 @@ Type the command in the command box and press Enter to execute it.
 Please refer to the [Feature-Description](#feature-description) section below for the full list of commands and their descriptions.
 
 [Return to Table of Contents](#table-of-contents)
-
+<div style="page-break-before:always"></div>
 --------------------------------------------------------------------------------------------------------------------
 ## Example Usage
 
@@ -147,9 +136,7 @@ For each of the commands, type them into the command box and press enter to exec
 
 <p align="center"><img src="images/Ui-annotate.png"></p>
 <p align="center">Graphical User Interface of ClientBook.</p>
-
-<br>
-
+<div style="page-break-before:always"></div>
 <p><b>Step 1.</b></p> 
 
 **Try adding a new Client contact using the command** `add n/James Lee p/91234567 e/james@gmail.com a/Blk 123 Serangoon Rd t/Friend t/Colleague i/OCBC#412>www.ocbc.com/policy/412`.
@@ -167,8 +154,6 @@ we indicated that James has purchased a policy from us with a policy ID of OCBC#
 Now, if you scroll down the contact list, you should find James at the bottom of the list.
 
 <p align="center"><img src="images/newContactJames.png"></p>
-
-<br>
 
 <p><b>Step 2.</b></p>
 
@@ -197,7 +182,7 @@ to delete all the sample entries and start using your very own ClientBook.
 [Return to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
-
+<div style="page-break-before:always"></div>
 ## Overview
 
 ### Feature Summary 
@@ -221,6 +206,11 @@ to delete all the sample entries and start using your very own ClientBook.
 | [`deleteshortcut`](#deleteshortcut-delete-shortcut) | Delete shortcut |
 | [`listshortcut`](#listshortcut-list-all-shortcuts) | List all shortcuts |
 | [`clearshortcut`](#clearshortcut-delete-all-shortcuts) | Clear all shortcuts |
+
+<div style="page-break-before:always"></div>
+
+| Feature | Description |
+| ----------- | ----------- |
 |<span style="color:#3cb44b">**General**</span>|
 | [`lock`](#lock-lock-clientbook-with-a-user-selected-password) | Lock ClientBook with a user-selected password |
 | [`unlock`](#unlock-unlock-clientbook) | Unlock ClientBook |
@@ -232,7 +222,6 @@ to delete all the sample entries and start using your very own ClientBook.
 [Return to Table of Contents](#table-of-contents)
 
 ### What information can we store for each client contact?
-
 
 Each client attribute such as name and address have been assigned identifiers so that you do not have to type out
 the entire attribute when using ClientBook. For example, name has been abbreviated to `n`. Listed below are all the identifiers
@@ -264,6 +253,14 @@ exists and editing a client to have the same information as an existing client i
     <td> Address </td>
     <td> <code>a</code> </td>
     <td> NA </td>
+  </tr>
+</table>
+<div style="page-break-before:always"></div>
+<table>
+  <tr>
+    <td> <b>Attribute</b> </td>
+    <td> <b>Identifier(s)</b> </td>
+    <td> <b>Notes/Restrictions</b> </td>
   </tr>
   <tr>
     <td> Email </td>
@@ -302,6 +299,13 @@ exists and editing a client to have the same information as an existing client i
         <ul><li>If duplicate insurance policies are entered in a command, only 1 will be added to the client</li></ul>
     </td>
   </tr>
+</table>
+<table>
+  <tr>
+    <td> <b>Attribute</b> </td>
+    <td> <b>Identifier(s)</b> </td>
+    <td> <b>Notes/Restrictions</b> </td>
+  </tr>
   <tr>
     <td> Meeting </td>
     <td> <code>m</code> </td>
@@ -320,7 +324,7 @@ exists and editing a client to have the same information as an existing client i
 [Return to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
-
+<div style="page-break-before:always"></div>
 <div markdown="block" class="alert alert-info">
 
 **:information_source: Notes about the command format:**<br>
