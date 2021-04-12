@@ -206,10 +206,12 @@ to delete all the sample entries and start using your very own ClientBook.
 | [`deleteshortcut`](#deleteshortcut-delete-shortcut) | Delete shortcut |
 | [`listshortcut`](#listshortcut-list-all-shortcuts) | List all shortcuts |
 | [`clearshortcut`](#clearshortcut-delete-all-shortcuts) | Clear all shortcuts |
-|<span style="color:#3cb44b">**General**</span>|
+
 <div style="page-break-before:always"></div>
+
 | Feature | Description |
 | ----------- | ----------- |
+|<span style="color:#3cb44b">**General**</span>|
 | [`lock`](#lock-lock-clientbook-with-a-user-selected-password) | Lock ClientBook with a user-selected password |
 | [`unlock`](#unlock-unlock-clientbook) | Unlock ClientBook |
 | [`help`](#help-viewing-help) | Viewing help |
