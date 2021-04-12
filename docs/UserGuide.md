@@ -3,7 +3,7 @@ layout: page
 title: User Guide
 ---
 
-# ClientBook
+# ClientBook <img src="images/logo.png"></p>
 
 ClientBook is an application for insurance agents to manage client contacts, optimized for use with just a keyboard,
 but still offering a graphical interface for ease of viewing of client contacts. The purpose of ClientBook is to help 
@@ -73,8 +73,7 @@ Please use the table of contents to navigate through the user guide quickly. Cli
         * [**4.4.4** `exit`: Exiting the program](#exit-exiting-the-program)
         * [**4.4.5** Keyboard commands](#keyboard-commands)
         * [**4.4.5** Saving data](#saving-data)
-        * [**4.4.6** Editing data file](#editing-data-file)
-        * [**4.4.7** Upcoming features!](#upcoming-features-v20-and-beyond)
+        * [**4.4.6** Upcoming features!](#upcoming-features-v20-and-beyond)
 * [**5.** Frequently Asked Questions](#frequently-asked-questions)
   * [**5.1** Setting Up](#setting-up)
 * [**6.** Summary of Commands](#summary-of-commands)
@@ -148,6 +147,8 @@ For each of the commands, type them into the command box and press enter to exec
 
 <p align="center"><img src="images/Ui-annotate.png"></p>
 <p align="center">Graphical User Interface of ClientBook.</p>
+
+<br>
 
 <p><b>Step 1.</b></p> 
 
@@ -227,7 +228,6 @@ to delete all the sample entries and start using your very own ClientBook.
 | [`exit`](#exit-exiting-the-program) | Exit ClientBook |
 | [Keyboard commands](#keyboard-commands) | Keyboard commands to enter command keywords quickly |
 | [Saving data](#saving-data) | Save the data to a file in the home folder |
-| [Editing data file](#editing-data-file) | Edit the data stored in the file in the home folder|
 
 [Return to Table of Contents](#table-of-contents)
 
@@ -238,6 +238,9 @@ Each client attribute such as name and address have been assigned identifiers so
 the entire attribute when using ClientBook. For example, name has been abbreviated to `n`. Listed below are all the identifiers
 which correspond to client attributes as well as restrictions that have to be followed when they are used as part of a command.
 
+Please note that duplicate clients (having the same information for all attributes) is not allowed. Adding a client that already
+exists and editing a client to have the same information as an existing client is invalid.
+
 <table>
   <tr>
     <td> <b>Attribute</b> </td>
@@ -247,8 +250,9 @@ which correspond to client attributes as well as restrictions that have to be fo
   <tr>
     <td> Name </td>
     <td> <code>n</code> </td>
-    <td> Must only contain <a href=#glossary>alphanumeric</a> characters and spaces </td>
-
+    <td> 
+        <ul><li>Must only contain <a href="#glossary">alphanumeric</a> characters and spaces</li></ul>
+    </td>
   </tr>
   <tr>
     <td> Phone number </td>
@@ -268,7 +272,7 @@ which correspond to client attributes as well as restrictions that have to be fo
     <td> <code>e</code> </td>
     <td><ul><li>Should be of the form <code>name@email.com</code></li></ul>
         <ul><li><code>name</code> part of email should:
-            <ul><li>Consists only of alphanumeric characters and these special characters <code>!#$%&'*+/=?`{|}~^.-)</code></li></ul>
+            <ul><li>Consists only of alphanumeric characters and these special characters <code>!#$%&'*+/=?`{|}~^.-</code></li></ul>
         </li></ul>
         <ul><li> <code>email</code> part of email should: 
             <ul><li>Be at least 2 characters long</li></ul>
@@ -282,6 +286,7 @@ which correspond to client attributes as well as restrictions that have to be fo
     <td> <code>t</code> </td>
     <td><ul><li>Optional</li></ul>
         <ul><li>Tags can be used to label your relationship with your client e.g. friend, family, classmate</li></ul>
+        <ul><li>Should contain only alphanumeric characters</li></ul>
         <ul><li>Tags associated with a client are shown in alphabetical order in ClientBook</li></ul>
         <ul><li>If duplicate tags are entered in a command, only 1 will be added to the client</li></ul>
     </td>
@@ -338,6 +343,10 @@ which correspond to client attributes as well as restrictions that have to be fo
   * e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 
 
+* **Order of flags matter**.
+  * e.g. `sort -n -asc` will work, but `sort -asc -n` does not work.
+
+
 * **Extraneous parameters for commands that do not take in parameters** (such as `help`, `exit` and `listshortcut`) **will be ignored**. 
   * e.g. if the command specifies `help 123`, it will be interpreted as `help`.
   
@@ -371,7 +380,8 @@ A client can have any number of tags and insurance policies (including 0).
 * It is optional to include the `POLICY_URL` for the specified `POLICY_ID`.
 * To include the URL, remember to use `>` to indicate that a particular insurance policy is linked to a URL, as shown in the second example below.
 * Meetings of a client cannot be added with this command.
-* Adding duplicate clients (having the same information for all attributes) is not allowed.
+* If a field (e.g. `n/NAME`) is expected only once in the command, but you specified it multiple times, only the last occurrence of the field will be taken.
+    * E.g. if you specify `add n/Alex n/Bob...`, only `n/Bob` will be taken.
 
 **Examples**:
 * Example of a client with insurance policy but no URL associated with insurance policy
@@ -389,15 +399,26 @@ A client can have any number of tags and insurance policies (including 0).
 
 ### <span style="color:#b573c9"><code>edit</code>: Edit client contact</span>
 
-**Purpose**: Edits an existing client contact in the ClientBook.
+**Purpose**: Edits an existing client contact in the ClientBook. The new information passed to this command will replace 
+the existing client information.
 
-**Format**: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [i/POLICY_ID[>POLICY_URL]]…​ [t/TAG]…​`
+**Format**: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [i/POLICY_ID[>POLICY_URL] [-MODE]]…​ [t/TAG]…​`
 
 * Edits the client at the specified `INDEX`.
     * `INDEX` refers to the index number shown in the displayed client list.
     * `INDEX` must be 1 or higher, and less than or equal to the index of the last item in the displayed list.
 * At least one of the optional fields must be provided.
 * Meetings of a client cannot be modified with this command.
+* If a field (e.g. `n/NAME`) is expected only once in the command, but you specified it multiple times, only the last occurrence of the field will be taken.
+    * If you specify `edit n/Alex n/Bob...`, only `n/Bob` will be taken.
+* For fields that are allowed to be empty, specifying the identifier and leaving it empty will clear the existing information.
+    * `edit 1 i/` will clear the existing policies.
+* While editing the insurance policies of a client, user can choose to modify, remove or insert policy ids to 
+a client, by typing `-MODE` to specify an editing mode after a policy number. 
+    * `-MODE` can be -insert, -modify or -remove.
+    * If user chooses to modify an existing policy, the user can specify the old and new policies, separated by `;`. An example is shown below.
+    * For each edit command, only 1 editing mode can be specified.
+    * If no mode is specified, the edit command will replace all existing policies with the policies specified in the command.
 
 <div markdown="block" class="alert alert-info">
 :exclamation: **Caution**: Existing values will be **replaced** with the input values.
@@ -411,9 +432,13 @@ A client can have any number of tags and insurance policies (including 0).
       <br><br>
 *  Edit the name of the 2nd client to be `Betsy Crower`.
     * `edit 2 n/Betsy Crower`
+    <br><br> 
+*  Modify the policy id of the 1st client from `Pol#12345` to `Pol#54321`.
+    * `edit 1 i/Pol#12345;Pol#54321 -modify`
 
 [Return to Table of Contents](#table-of-contents)
 <br><br>
+
 
 ### <span style="color:#b573c9"><code>delete</code>: Delete client contact</span>
 
@@ -428,9 +453,8 @@ A client can have any number of tags and insurance policies (including 0).
 **Examples**:
 * `delete 2` deletes the 2nd client in the currently displayed list.
   <br><br>
-To more easily delete policies of a specific client in mind, `delete` can be used in conjunction with `find`.
-* Deleting a client with the name "Charlotte Chan"
-    * First, use `find n/Charlotte Chan`. Assuming there is only 1 Charlotte Chan in the client book, she will be the 
+* To easily delete a specific client "Charlotte Chan", `delete` can be used in conjunction with `find`.
+    * First, use `find n/Charlotte Chan`. Assuming there is only one Charlotte Chan in the client book, she will be the 
     client at index 1 after we run the command.
     * After we get the filtered list, use `delete 1` to delete the client at index 1, which is 
     Charlotte Chan after the above command.
@@ -526,13 +550,13 @@ symbol to select which client details you want to see, so that you can have a cl
 *  `list` without any specified identifiers shows a list of all clients and all their information.
     * `list`
   
-    ![list](images/list.png)
+      ![list](images/list.png)
 <br><br>
 *  One or more identifiers can be used to make `list` only show the specified information. The following command 
    shows a list of all clients and their phone number and insurance policy information.
     * `list -p -i`
     
-    ![list phone](images/list-phone-policy-annotate.png)
+      ![list phone](images/list-phone-policy-annotate.png)
 
 [Return to Table of Contents](#table-of-contents)
 <br><br>
@@ -548,10 +572,10 @@ You may use optional identifiers in conjunction with the `-` symbol to limit the
 * The `IDENTIFIER` specifies which attribute of the client you want to search for. For example, if you want to search for a client contact
   by name, use the `n` identifier.
     * For more information about the identifiers for each field, refer to [What information can we store for each client contact?](#what-information-can-we-store-for-each-client-contact).
-* You may not use multiple attributes as your search criteria e.g. you cannot search for a client using address and name at the same time.
-  *`find n/David a/Botanic gardens` is invalid.
+* You may not use multiple attributes as your search criteria.
+    *`find n/David a/Botanic gardens` is invalid.
 * The search is **case-insensitive**. 
-  * `find hans` is equivalent to `find Hans`.
+  * `find n/hans` is equivalent to `find n/Hans`.
 * The symbol `&` between keywords allows you to search for Clients using multiple keywords.
 * The **order of the keywords does not matter**.
   * `find n/alex & david` is equivalent to `find n/david & alex`
@@ -595,10 +619,10 @@ You may use optional identifiers in conjunction with the `-` symbol to limit the
 * Displays the policies associated with the 2nd client in the currently displayed list.
     * `policy 2`  
     
-  ![with policy URL](images/with-policy-URL-annotate.png)
+      ![with policy URL](images/with-policy-URL-annotate.png)
   <br><br>
-To more easily list policies of a specific client in mind, `policy` can be used in conjunction with `find`.
-* Getting policy information of a client with the name "Bernice Tan"
+
+* To easily view policies of a specific client, named "Bernice Tan" `policy` can be used in conjunction with `find`.
     * First, use `find n/Bernice Tan`. Assuming there is only 1 Bernice Tan in the client book, she will be the 
     client at index 1 after we run the command.
     * After we get the filtered list, use `policy 1` to display the policies associated with the client at index 1, which is 
@@ -633,8 +657,8 @@ To more easily list policies of a specific client in mind, `policy` can be used 
 
 ### <span style="color:#c9a500">Shortcuts</span>
 We understand that you might have commands that you frequently use. You may use shortcuts to abbreviate
-those commands to make using ClientBook more convenient. To give you a clearer idea of how the shortcuts feature works,
-an example usage is provided below.
+those commands to make using ClientBook more convenient. As this feature is not commonly found in other contact management applications,
+we have included the following Example Usage section to guide you through on how to use this feature. 
 
 ### <span style="color:#c9a500">Example Usage</span>
 <p><b>Scenario:</b></p> 
@@ -756,12 +780,12 @@ created.
 
 **Format**: `lock [CURRENT_PASSWORD] [NEW_PASSWORD]`
 
-* If ClientBook is not yet locked.
+* If ClientBook is not yet locked:
     * `CURRENT_PASSWORD` field can be omitted.
     * `NEW_PASSWORD` can also be omitted and ClientBook will attempt to lock itself using your most recently used password.
 
 
-* If ClientBook is already locked.
+* If ClientBook is already locked:
     * ClientBook verifies the current password before locking ClientBook with `NEW_PASSWORD`.
 
 <div markdown="block" class="alert alert-info">
@@ -855,16 +879,11 @@ Data is saved automatically after any command that changes the data. There is no
 
 <div markdown="block" class="alert alert-info">
 :exclamation: **Caution**:
-If your changes to the data file makes its format invalid, **all your data will be lost** at the next run.
+Please do not make changes to the data file. If the format is invalid, **all your data will be lost** at the next run.
 </div>
 
 [Return to Table of Contents](#table-of-contents)
 <br><br>
-
-
-[Return to Table of Contents](#table-of-contents)
-<br><br>
-
 
 ### Upcoming features (v2.0 and beyond!)
 
@@ -978,7 +997,7 @@ CTRL + S | `sort` |
 
 Didn't find what you were looking for? Contact us at [clientbook@email.com](clientbook@email.com).
 
-ClientBook is still a work in progess. We hope to be able to further improve ClientBook to suit your needs. 
+ClientBook is still a work in progress. We hope to be able to further improve ClientBook to suit your needs. 
 Should you have any suggestions, feel free to drop us an email! 
 We would love to hear from you insurance agents who are actively out and about, providing us with the best services.
 
