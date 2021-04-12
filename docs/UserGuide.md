@@ -103,8 +103,10 @@ Double-click the downloaded `clientbook.jar` file in your home folder to start t
    * Alternatively, for those who are tech-savvy, you can launch the application via Command Prompt in Windows or Terminal in Mac OS/Linux using the following command: `java -jar clientbook.jar`. 
    * Note how the app contains some sample data.
     
-        <p align="center"><img src="images/Ui-annotate.png"></p>
+        <p align="center"><img src="images/Ui-annotate.png" height="330"></p>
         <p align="center">Graphical User Interface of ClientBook.</p>
+
+<div style="page-break-before:always"></div>
 
 <p><b>Step 5.</b></p>
 
@@ -125,8 +127,9 @@ Type the command in the command box and press Enter to execute it.
 Please refer to the [Feature-Description](#feature-description) section below for the full list of commands and their descriptions.
 
 [Return to Table of Contents](#table-of-contents)
-<div style="page-break-before:always"></div>
+
 --------------------------------------------------------------------------------------------------------------------
+<div style="page-break-before:always"></div>
 ## Example Usage
 
 Described below are some commands that you can try to get yourself familiarised with ClientBook.
@@ -136,6 +139,8 @@ For each of the commands, type them into the command box and press enter to exec
 
 <p align="center"><img src="images/Ui-annotate.png"></p>
 <p align="center">Graphical User Interface of ClientBook.</p>
+[Return to Table of Contents](#table-of-contents)
+
 <div style="page-break-before:always"></div>
 <p><b>Step 1.</b></p> 
 
@@ -163,7 +168,9 @@ Now, if you scroll down the contact list, you should find James at the bottom of
 This command edits the phone number of the first client displayed in the contact list to 61234567. In this case, Alex Yeoh's
 phone number in ClientBook has been changed to 61234567.
 
-<p align="center"><img src="images/alexYeohChangePhone.png"></p>
+<p align="center"><img src="images/alexYeohChangePhone.png" height="220"></p>
+
+[Return to Table of Contents](#table-of-contents)
 
 <br>
 
@@ -182,7 +189,7 @@ to delete all the sample entries and start using your very own ClientBook.
 [Return to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
-<div style="page-break-before:always"></div>
+
 ## Overview
 
 ### Feature Summary 
@@ -206,11 +213,6 @@ to delete all the sample entries and start using your very own ClientBook.
 | [`deleteshortcut`](#deleteshortcut-delete-shortcut) | Delete shortcut |
 | [`listshortcut`](#listshortcut-list-all-shortcuts) | List all shortcuts |
 | [`clearshortcut`](#clearshortcut-delete-all-shortcuts) | Clear all shortcuts |
-
-<div style="page-break-before:always"></div>
-
-| Feature | Description |
-| ----------- | ----------- |
 |<span style="color:#3cb44b">**General**</span>|
 | [`lock`](#lock-lock-clientbook-with-a-user-selected-password) | Lock ClientBook with a user-selected password |
 | [`unlock`](#unlock-unlock-clientbook) | Unlock ClientBook |
@@ -220,6 +222,8 @@ to delete all the sample entries and start using your very own ClientBook.
 | [Saving data](#saving-data) | Save the data to a file in the home folder |
 
 [Return to Table of Contents](#table-of-contents)
+
+<div style="page-break-before:always"></div>
 
 ### What information can we store for each client contact?
 
@@ -253,14 +257,6 @@ exists and editing a client to have the same information as an existing client i
     <td> Address </td>
     <td> <code>a</code> </td>
     <td> NA </td>
-  </tr>
-</table>
-<div style="page-break-before:always"></div>
-<table>
-  <tr>
-    <td> <b>Attribute</b> </td>
-    <td> <b>Identifier(s)</b> </td>
-    <td> <b>Notes/Restrictions</b> </td>
   </tr>
   <tr>
     <td> Email </td>
@@ -298,13 +294,6 @@ exists and editing a client to have the same information as an existing client i
         <ul><li>A client should not have duplicate insurance policies</li></ul>
         <ul><li>If duplicate insurance policies are entered in a command, only 1 will be added to the client</li></ul>
     </td>
-  </tr>
-</table>
-<table>
-  <tr>
-    <td> <b>Attribute</b> </td>
-    <td> <b>Identifier(s)</b> </td>
-    <td> <b>Notes/Restrictions</b> </td>
   </tr>
   <tr>
     <td> Meeting </td>
@@ -359,7 +348,11 @@ exists and editing a client to have the same information as an existing client i
 
 </div>
 
+[Return to Table of Contents](#table-of-contents)
+
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-before:always"></div>
 
 ## Feature Description
 
@@ -421,8 +414,8 @@ A client can have any number of tags and insurance policies (including 0).
 *  Edit the phone number and email address of the 1st client to be `91234567` and `johndoe@example.com` respectively.
     * `edit 1 p/91234567 e/johndoe@example.com`
     
-      ![edit 1](images/edit-annotate.png)
-      <br><br>
+      <p><img src="images/edit-annotate2.png" height="300"></p>
+     
 *  Edit the name of the 2nd client to be `Betsy Crower`.
     * `edit 2 n/Betsy Crower`
 
@@ -449,7 +442,6 @@ A client can have any number of tags and insurance policies (including 0).
     Charlotte Chan after the above command.
 
 [Return to Table of Contents](#table-of-contents)
-<br><br>
 
 ### <span style="color:#b573c9"><code>batch</code>: Execute commands in batch</span>
 
@@ -465,6 +457,7 @@ enter the same command multiple times.
 * Each index in `INDICES` must be 1 or higher, and less than or equal to the index of the last item in the displayed list.
 * There must be no repeat index in `INDICES`.
 * The optional `ARGUMENTS` input is only applicable if the `COMMAND` is `edit`.
+<div style="page-break-before:always"></div>
 * For `edit`, you can only batch edit the following attributes:
     * phone number
     * address
@@ -485,8 +478,6 @@ If a parameter is expected only once in the command, but you specified it multip
 * To batch delete more than 1 client contact.
     * `batch delete 1, 2, 4`
 
-[Return to Table of Contents](#table-of-contents)
-<br><br>
 
 ### <span style="color:#b573c9"><code>meet</code>: Schedule a meeting with a client</span>
 
@@ -502,6 +493,9 @@ If a parameter is expected only once in the command, but you specified it multip
 * Past meetings are allowed to be added to clients for archival purposes.
 * There will be a check for clashes between meetings when adding a new meeting.
 
+[Return to Table of Contents](#table-of-contents)
+
+<div style="page-break-before:always"></div>
 **Examples**:
 * Add a meeting for a specific client and there are no clashes.
     * `meet 5 -add 20.05.2021 15:00 16:00 MRT`
@@ -522,6 +516,7 @@ If a parameter is expected only once in the command, but you specified it multip
 [Return to Table of Contents](#table-of-contents)
 <br><br>
 
+<div style="page-break-before:always"></div>
 ### <span style="color:#c93640">Contact Viewing Features</span>
 Contact viewing features allow you to view your client contacts in different ways. For example,
 you may reorder your contact list or look for specific clients.
@@ -538,8 +533,11 @@ symbol to select which client details you want to see, so that you can have a cl
 **Examples**: 
 *  `list` without any specified identifiers shows a list of all clients and all their information.
     * `list`
-  
-      ![list](images/list.png)
+
+<p align="center"><img src="images/list.png" height="500"></p>
+
+[Return to Table of Contents](#table-of-contents)
+
 <br><br>
 *  One or more identifiers can be used to make `list` only show the specified information. The following command 
    shows a list of all clients and their phone number and insurance policy information.
@@ -550,7 +548,7 @@ symbol to select which client details you want to see, so that you can have a cl
 [Return to Table of Contents](#table-of-contents)
 <br><br>
 
-  
+<div style="page-break-before:always"></div>
 ### <span style="color:#c93640"><code>find</code>: Search for client contact based on keywords</span>
 
 **Purpose**: Finds client contacts based on the attribute and keywords that you specify.
@@ -575,9 +573,12 @@ You may use optional identifiers in conjunction with the `-` symbol to limit the
     <br><br>
 * Find `Alex David`.
   * `find n/alex david`
-  
-    ![find_alex_david](images/find_alex_david-annotate.png)
-    <br><br>
+
+    ![find_alex_david](images/find_alex_david-annotate2.png)
+
+[Return to Table of Contents](#table-of-contents)
+
+<div style="page-break-before:always"></div>
 * Find `Alex David`, `Alex Yeoh` and `David Li`.
   * `find n/alex & david`
     <br><br>
@@ -593,7 +594,7 @@ You may use optional identifiers in conjunction with the `-` symbol to limit the
 [Return to Table of Contents](#table-of-contents)
 <br><br>
 
-
+<div style="page-break-before:always"></div>
 ### <span style="color:#c93640"><code>policy</code>: Display policies associated with a client</span>
 
 **Purpose**: Launches a popup window to show all the policies associated with the selected contact, if the selected contact has any policies.
@@ -607,9 +608,10 @@ You may use optional identifiers in conjunction with the `-` symbol to limit the
 **Examples**:
 * Displays the policies associated with the 2nd client in the currently displayed list.
     * `policy 2`  
-    
-      ![with policy URL](images/with-policy-URL-annotate.png)
-  <br><br>
+
+
+<p align="center"><img src="images/with-policy-URL-annotate.png" height="450"></p>
+
 
 * To easily view policies of a specific client, named "Bernice Tan" `policy` can be used in conjunction with `find`.
     * First, use `find n/Bernice Tan`. Assuming there is only 1 Bernice Tan in the client book, she will be the 
@@ -639,7 +641,7 @@ You may use optional identifiers in conjunction with the `-` symbol to limit the
 * You can also sort the current list of clients by name in **descending** alphabetical order.
     * `sort -n -des`
 
-      ![sort](images/sort-des-annotate.png)
+<p align="center"><img src="images/sort-des-annotate.png" height="450"></p>
 
 [Return to Table of Contents](#table-of-contents)
 <br><br>
@@ -658,7 +660,6 @@ additional information (e.g. address, email, phone). You know that you can do so
 you would like a faster way to do it because you have to use it frequently, so you decided to create a 
 shortcut named `li` to perform the same action as `list -i`.
 
-<br>
 
 <p><b>Step 1.</b></p> 
 
@@ -667,7 +668,6 @@ shortcut named `li` to perform the same action as `list -i`.
 This command creates a shortcut which performs `list -i` everytime you type `li` in the command box, and it is saved to 
 your shortcut library.
 
-<br>
 
 <p><b>Step 2.</b></p> 
 
@@ -676,11 +676,11 @@ your shortcut library.
 As you have saved this shortcut in the shortcut library, you may now use `li` to perform the command `list -i` anytime 
 and as many times as you want, which will save you from the hassle of having to type `list -i` everytime.
 
-<p align="center"><img src="images/shortcut-example.png"></p>
 
 [Return to Table of Contents](#table-of-contents)
 <br><br>
 
+<div style="page-break-before:always"></div>
 
 ### <span style="color:#c9a500"><code>addshortcut</code>: Add shortcut</span>
 
@@ -697,10 +697,8 @@ and as many times as you want, which will save you from the hassle of having to 
   only) in the shortcut library.
     * `addshortcut sn/li sc/list -i`
 
-![addshortcut](images/addshortcut.png)
+<p align="center"><img src="images/addshortcut.png" height="130"></p>
 
-[Return to Table of Contents](#table-of-contents)
-<br><br>
 
 
 ### <span style="color:#c9a500"><code>editshortcut</code>: Edit shortcut</span>
@@ -718,8 +716,9 @@ and as many times as you want, which will save you from the hassle of having to 
     * `editshortcut sn/ls sc/list`
 
 [Return to Table of Contents](#table-of-contents)
-<br><br>
 
+
+<div style="page-break-before:always"></div>
 
 ### <span style="color:#c9a500"><code>deleteshortcut</code>: Delete shortcut</span>
 
@@ -734,8 +733,6 @@ and as many times as you want, which will save you from the hassle of having to 
 * Delete a shortcut named `ls` in the shortcut library.
     * `deleteshortcut ls`
 
-[Return to Table of Contents](#table-of-contents)
-<br><br>
 
 
 ### <span style="color:#c9a500"><code>listshortcut</code>: List all shortcuts</span>
@@ -747,8 +744,6 @@ created.
 
 **Format**: `listshortcut`
 
-[Return to Table of Contents](#table-of-contents)
-<br><br>
 
 
 ### <span style="color:#c9a500"><code>clearshortcut</code>: Delete all shortcuts</span>
@@ -789,15 +784,17 @@ created.
   * `lock 123`
 
     ![lock 123](images/lock-new-pw.png)
-    <br><br>
+
+[Return to Table of Contents](#table-of-contents)
+
+<div style="page-break-before:always"></div>
+
 * Change ClientBook's password from `123` to `456`.
   * `lock 123 456`
 
     ![lock 456](images/lock-update-pw.png)    
 
 
-[Return to Table of Contents](#table-of-contents)
-<br><br>
 
 
 ### <span style="color:#3cb44b"><code>unlock</code>: Unlock ClientBook</span>
@@ -815,14 +812,17 @@ created.
     * `unlock 123`
 
       ![unlock 123](images/unlock-wrong-pw.png)
-      <br><br>
+      
+[Return to Table of Contents](#table-of-contents)
+
+<div style="page-break-before:always"></div>
+
 * Unlock ClientBook with correct password `456`.
     * `unlock 456`
 
       ![unlock 456](images/unlock-correct-pw.png)
 
-[Return to Table of Contents](#table-of-contents)
-<br><br>
+
 
 ### <span style="color:#3cb44b"><code>help</code>: Viewing help</span>
 
@@ -832,8 +832,6 @@ created.
 
 **Format**: `help`
 
-[Return to Table of Contents](#table-of-contents)
-<br><br>
 
 ### <span style="color:#3cb44b"><code>exit</code>: Exiting the program</span>
 
@@ -842,7 +840,8 @@ created.
 **Format**: `exit`
 
 [Return to Table of Contents](#table-of-contents)
-<br><br>
+
+<div style="page-break-before:always"></div>
 
 ### <span style="color:#3cb44b">Keyboard commands</span>
 
@@ -858,7 +857,7 @@ CTRL + F | `find` |
 CTRL + L | `list` |
 CTRL + S | `sort` |
 
-[Return to Table of Contents](#table-of-contents)
+
 
 ### <span style="color:#3cb44b">Saving data</span>
 ClientBook saves its data file `clientbook.json` in a zip file `clientbook.zip` inside the `data` folder in the [home folder](#quick-start).
@@ -872,7 +871,8 @@ Please do not make changes to the data file. If the format is invalid, **all you
 </div>
 
 [Return to Table of Contents](#table-of-contents)
-<br><br>
+
+<div style="page-break-before:always"></div>
 
 ### Upcoming features (v2.0 and beyond!)
 
@@ -881,7 +881,6 @@ Please do not make changes to the data file. If the format is invalid, **all you
 * Login interface
 * And more!
 
-[Return to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
 ## Frequently Asked Questions
@@ -900,6 +899,8 @@ If you get an error message (`Java command not found`), it means that Java is no
 [Return to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-before:always"></div>
 
 ## Summary of Commands
 
@@ -931,6 +932,9 @@ If you get an error message (`Java command not found`), it means that Java is no
 [Return to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-before:always"></div>
+
 ## Summary of Keyboard Commands
 
 | Command | Output |
@@ -945,6 +949,9 @@ CTRL + S | `sort` |
 [Return to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-before:always"></div>
+
 ## Glossary
 
 1. **Alphanumeric** A character or group of characters is considered alphanumeric if it contains only numbers and alphabets.
@@ -977,8 +984,6 @@ CTRL + S | `sort` |
 10. **UI** (user interface) An interface for a user to interact with a program.
 
 
-
-[Return to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
 
