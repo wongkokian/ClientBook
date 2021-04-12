@@ -615,7 +615,8 @@ You may use optional identifiers in conjunction with the minus(-) symbol to limi
 
 ### <span style="color:#c9a500">Shortcuts</span>
 We understand that you might have commands that you frequently use. You may use shortcuts to abbreviate
-those commands to make using ClientBook more convenient.
+those commands to make using ClientBook more convenient. To give you a clearer idea of how the shortcuts feature works,
+an example usage is provided below.
 
 ### <span style="color:#c9a500">Example Usage</span>
 <p><b>Scenario:</b></p> 
