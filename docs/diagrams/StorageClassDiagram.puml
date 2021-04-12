@@ -4,23 +4,50 @@ skinparam arrowThickness 1.1
 skinparam arrowColor STORAGE_COLOR
 skinparam classBackgroundColor STORAGE_COLOR
 
+package Storage {
 Interface Storage <<Interface>>
 Interface UserPrefsStorage <<Interface>>
 Interface AddressBookStorage <<Interface>>
+Interface ShortcutLibraryStorage <<Interface>>
 
 Class StorageManager
 Class JsonUserPrefsStorage
 Class JsonAddressBookStorage
+Class JsonShortcutLibraryStorage
 Class Authentication
+
+Class JsonSerializableShortcutLibrary
+Class JsonAdaptedShortcut
+Class JsonSerializableAddressBook
+Class JsonAdaptedTag
+Class JsonAdaptedPerson
+Class JsonAdaptedInsurancePolicy
+}
+
+Class HiddenOutside #FFFFFF
+HiddenOutside ..> StorageManager
 
 StorageManager .left.|> Storage
 StorageManager o-right-> UserPrefsStorage
 StorageManager o--> AddressBookStorage
+StorageManager o--> ShortcutLibraryStorage
+
+Storage -|> UserPrefsStorage
+Storage -|> AddressBookStorage
 
 JsonUserPrefsStorage .left.|> UserPrefsStorage
-JsonAddressBookStorage .left.|> AddressBookStorage
-JsonAddressBookStorage .down.> JsonSerializableAddressBookStorage
-JsonSerializableAddressBookStorage .right.> JsonSerializablePerson
-JsonSerializablePerson .right.> JsonAdaptedTag
-JsonSerializablePerson .up.> JsonAdaptedInsurancePolicy
+JsonAddressBookStorage .up.|> AddressBookStorage
+JsonShortcutLibraryStorage .left.|> ShortcutLibraryStorage
+
+JsonAddressBookStorage .down.> JsonSerializableAddressBook
+JsonSerializableAddressBook .right.> JsonAdaptedPerson
+JsonAdaptedPerson .up.> JsonAdaptedTag
+JsonAdaptedPerson .right.> JsonAdaptedInsurancePolicy
+JsonAdaptedPerson .up.> JsonAdaptedMeeting
+JsonShortcutLibraryStorage .right.> JsonSerializableShortcutLibrary
+JsonSerializableShortcutLibrary .down.> JsonAdaptedShortcut
+
+Authentication -[hidden]left-> JsonUserPrefsStorage
+
+ShortcutLibraryStorage -[hidden]left-> AddressBookStorage
 @enduml
