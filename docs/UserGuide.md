@@ -91,19 +91,13 @@ The quick start section provides a tutorial which will guide you through the ste
 Ensure you have Java `11` or above installed in your Computer.
    * To check if you have this installed or for instructions on how to install, refer to our FAQ [here](#frequently-asked-questions).
 
-<br>
-
 <p><b>Step 2.</b></p>
 
 Download the latest `clientbook.jar` [here](https://github.com/AY2021S2-CS2103T-W15-2/tp/releases).
-   
-<br>
 
 <p><b>Step 3.</b></p>
 
 Copy the file to the folder (we will be referring to this folder as the **_home folder_**) where you want to store the ClientBook application and your client information.
-
-<br>
 
 <p><b>Step 4.</b></p>
 
@@ -113,8 +107,6 @@ Double-click the downloaded `clientbook.jar` file in your home folder to start t
     
         <p align="center"><img src="images/Ui-annotate.png"></p>
         <p align="center">Graphical User Interface of ClientBook.</p>
-    
-<br>
 
 <p><b>Step 5.</b></p>
 
@@ -146,9 +138,7 @@ For each of the commands, type them into the command box and press enter to exec
 
 <p align="center"><img src="images/Ui-annotate.png"></p>
 <p align="center">Graphical User Interface of ClientBook.</p>
-
-<br>
-
+<div style="page-break-before:always"></div>
 <p><b>Step 1.</b></p> 
 
 **Try adding a new Client contact using the command** `add n/James Lee p/91234567 e/james@gmail.com a/Blk 123 Serangoon Rd t/Friend t/Colleague i/OCBC#412>www.ocbc.com/policy/412`.
@@ -196,7 +186,7 @@ to delete all the sample entries and start using your very own ClientBook.
 [Return to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
-
+<div style="page-break-before:always"></div>
 ## Overview
 
 ### Feature Summary 
