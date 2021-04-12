@@ -84,8 +84,6 @@ Please use the table of contents to navigate through the user guide quickly. Cli
 
 The quick start section provides a tutorial which will guide you through the steps needed to get ClientBook running.
 
-<br>
-
 <p><b>Step 1.</b></p>
 
 Ensure you have Java `11` or above installed in your Computer.
@@ -157,8 +155,6 @@ Now, if you scroll down the contact list, you should find James at the bottom of
 
 <p align="center"><img src="images/newContactJames.png"></p>
 
-<br>
-
 <p><b>Step 2.</b></p>
 
 **Try editing a Client contact using the command `edit 1 p/61234567`.**
@@ -211,6 +207,7 @@ to delete all the sample entries and start using your very own ClientBook.
 | [`listshortcut`](#listshortcut-list-all-shortcuts) | List all shortcuts |
 | [`clearshortcut`](#clearshortcut-delete-all-shortcuts) | Clear all shortcuts |
 |<span style="color:#3cb44b">**General**</span>|
+<div style="page-break-before:always"></div>
 | [`lock`](#lock-lock-clientbook-with-a-user-selected-password) | Lock ClientBook with a user-selected password |
 | [`unlock`](#unlock-unlock-clientbook) | Unlock ClientBook |
 | [`help`](#help-viewing-help) | Viewing help |
@@ -221,7 +218,6 @@ to delete all the sample entries and start using your very own ClientBook.
 [Return to Table of Contents](#table-of-contents)
 
 ### What information can we store for each client contact?
-
 
 Each client attribute such as name and address have been assigned identifiers so that you do not have to type out
 the entire attribute when using ClientBook. For example, name has been abbreviated to `n`. Listed below are all the identifiers
