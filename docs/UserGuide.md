@@ -34,7 +34,7 @@ with the features that it has to offer so that you can become comfortable with u
 If you are a new user, you can start with the [Quick Start](#quick-start) section to get ClientBook running. After that,
 we have also provided an [Example Usage](#example-usage) section to help you get familiarised with ClientBook.
 If you are an experienced user, we have provided a convenient [Summary of Commands](#summary-of-commands) at the end of this user guide.
-
+<div style="page-break-before:always"></div> 
 ## Table of Contents 
 
 Please use the table of contents to navigate through the user guide quickly. ClientBook's commands are grouped into 
@@ -42,8 +42,6 @@ Please use the table of contents to navigate through the user guide quickly. Cli
 <span style="color:#c93640">**contact viewing**</span>,
 <span style="color:#c9a500">**shortcuts**</span> and 
 <span style="color:#3cb44b">**general**</span> commands.
-
-
 
 * [**1.** Quick Start](#quick-start)
 * [**2.** Example Usage](#example-usage)
@@ -81,8 +79,7 @@ Please use the table of contents to navigate through the user guide quickly. Cli
 * [**6.** Summary of Commands](#summary-of-commands)
 * [**7.** Glossary](#glossary)
 * [**8.** Contact Us](#contact-us)
-
-
+<div style="page-break-before:always"></div>
 ## Quick Start
 
 The quick start section provides a tutorial which will guide you through the steps needed to get ClientBook running.
@@ -138,7 +135,7 @@ Type the command in the command box and press Enter to execute it.
 Please refer to the [Feature-Description](#feature-description) section below for the full list of commands and their descriptions.
 
 [Return to Table of Contents](#table-of-contents)
-
+<div style="page-break-before:always"></div>
 --------------------------------------------------------------------------------------------------------------------
 ## Example Usage
 
