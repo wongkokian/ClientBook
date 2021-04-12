@@ -150,16 +150,6 @@ public class Person {
     }
 
     /**
-     * Returns true if both persons are equal.
-     */
-    public boolean isSamePerson(Person otherPerson) {
-        if (otherPerson == null) {
-            return false;
-        }
-        return otherPerson.equals(this);
-    }
-
-    /**
      * Returns true if both persons have the same identity and data fields.
      * This defines a stronger notion of equality between two persons.
      */
