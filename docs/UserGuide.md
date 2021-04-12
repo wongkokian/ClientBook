@@ -208,6 +208,8 @@ to delete all the sample entries and start using your very own ClientBook.
 | [`clearshortcut`](#clearshortcut-delete-all-shortcuts) | Clear all shortcuts |
 |<span style="color:#3cb44b">**General**</span>|
 <div style="page-break-before:always"></div>
+| Feature | Description |
+| ----------- | ----------- |
 | [`lock`](#lock-lock-clientbook-with-a-user-selected-password) | Lock ClientBook with a user-selected password |
 | [`unlock`](#unlock-unlock-clientbook) | Unlock ClientBook |
 | [`help`](#help-viewing-help) | Viewing help |
@@ -250,6 +252,9 @@ exists and editing a client to have the same information as an existing client i
     <td> <code>a</code> </td>
     <td> NA </td>
   </tr>
+</table>
+<div style="page-break-before:always"></div>
+<table>
   <tr>
     <td> Email </td>
     <td> <code>e</code> </td>
