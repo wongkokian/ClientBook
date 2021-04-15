@@ -203,7 +203,6 @@ This command deletes the contact of the third client displayed in the contact li
 Now that you have tried out the basic commands available in ClientBook, you can use the command `batch delete 1,2,3,4,5,6,7`
 to delete all the sample entries and start using your very own ClientBook.
 
-[Return to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -225,7 +224,9 @@ to delete all the sample entries and start using your very own ClientBook.
 | [`find`](#find-search-for-client-contacts-based-on-keywords) | Search for client contacts based on keywords |
 | [`policy`](#policy-display-policies-associated-with-a-client) | Display policies associated with a selected client |
 | [`sort`](#sort-sort-list-of-clients) | Sort the list of clients |
-<div style="page-break-before:always"></div>
+
+
+
 | Feature | Description |
 | ----------- | ----------- |
 |<span style="color:#c9a500">**Shortcuts**</span>|
