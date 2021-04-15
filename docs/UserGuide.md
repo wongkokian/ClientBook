@@ -139,8 +139,6 @@ Type a command in the command box and press Enter to execute it.
    | `delete 3` | Deletes the 3rd contact in the displayed list (i.e. deletes `Charlotte Oliveiro`) |
    | `exit` | Exits ClientBook |
 
-<br>
-
 Please refer to the [Feature-Description](#feature-description) section below for the full list of commands and their descriptions.
 
 [Return to Table of Contents](#table-of-contents)
@@ -187,10 +185,6 @@ Now, if you scroll down the contact list, you should find James at the bottom of
 This command edits the phone number of the first client displayed in the contact list to 61234567. In this case, Alex Yeoh's
 phone number in ClientBook has been changed to 61234567.
 
-
-
-[Return to Table of Contents](#table-of-contents)
-
 <br>
 
 <p><b>Step 3.</b></p>
@@ -200,12 +194,13 @@ phone number in ClientBook has been changed to 61234567.
 
 This command deletes the contact of the third client displayed in the contact list.
 
+[Return to Table of Contents](#table-of-contents)
 
+<div style="page-break-before:always"></div>
 ### Conclusion
 Now that you have tried out the basic commands available in ClientBook, you can use the command `batch delete 1,2,3,4,5,6,7`
 to delete all the sample entries and start using your very own ClientBook.
 
-[Return to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -213,7 +208,6 @@ to delete all the sample entries and start using your very own ClientBook.
 
 ### Feature Summary 
 
-<br><br>
 
 | Feature | Description |
 | ----------- | ----------- |
@@ -228,6 +222,13 @@ to delete all the sample entries and start using your very own ClientBook.
 | [`find`](#find-search-for-client-contacts-based-on-keywords) | Search for client contacts based on keywords |
 | [`policy`](#policy-display-policies-associated-with-a-client) | Display policies associated with a selected client |
 | [`sort`](#sort-sort-list-of-clients) | Sort the list of clients |
+
+
+
+<br><br><br><br>
+
+| Feature | Description |
+| ----------- | ----------- |
 |<span style="color:#c9a500">**Shortcuts**</span>|
 | [`addshortcut`](#addshortcut-add-shortcut) | Add a shortcut |
 | [`editshortcut`](#editshortcut-edit-shortcut) | Edit a shortcut |
@@ -350,6 +351,8 @@ This section describes the features that ClientBook has and how to use them. The
   
 </div>
 
+[Return to Table of Contents](#table-of-contents)
+
 <div style="page-break-before:always"></div>
 
 ### <span style="color:#b573c9">Contact Management Features</span>
@@ -375,10 +378,8 @@ A client can have any number of tags and insurance policies (including 0).
       <br><br>
 * Example with no insurance policy and no tag
     * `add n/Betsy Crowe e/betsycrowe@email.com a/Kent Ridge p/61234567`
-
-[Return to Table of Contents](#table-of-contents)
 <br>
-
+    
 
 ### <span style="color:#b573c9"><code>edit</code>: Edit a client contact</span>
 
@@ -399,12 +400,11 @@ A client can have any number of tags and insurance policies (including 0).
 
 <div style="page-break-before:always"></div>
 
-**Examples**:
+**Example**:
 *  Edit the phone number and email address of the first client to be `91234567` and `johndoe@example.com` respectively.
     * **Command to enter:** `edit 1 p/91234567 e/johndoe@example.com`
     
       <p><img src="images/edit-annotate2.png" height="300"></p>
-    
 
 
 ### <span style="color:#b573c9"><code>delete</code>: Delete a client contact</span>
@@ -418,9 +418,7 @@ A client can have any number of tags and insurance policies (including 0).
 **Examples**:
 * Delete the second client in the currently displayed list.
 	* **Command to enter:** `delete 2`
-
-
-
+      <br><br>
 * To easily delete a specific client "Charlotte Chan", `delete` can be used in conjunction with [`find`](#find-search-for-client-contacts-based-on-keywords).
     * First, enter the command `find n/Charlotte Chan` to look for all clients named "Charolotte Chan"
     * After we get the filtered list, use `delete 1` to delete the client "Charlotte Chan" from ClientBook.
@@ -436,7 +434,7 @@ enter the same command multiple times.
 
 **Format**: `batch COMMAND INDICES [ARGUMENTS]`
 
-* Only [`edit`](#edit-edit-a-client-contact) and [`delete`](#delete-delete-client-contact) commands can be executed in batch.
+* Only [`edit`](#edit-edit-a-client-contact) and [`delete`](#delete-delete-a-client-contact) commands can be executed in batch.
 * `INDICES` are comma-separated e.g. `1,2,3` or `1, 2, 3` and they refer to the index number shown in the displayed client list.
 * There must be no repeat index in `INDICES`.
 * The optional `ARGUMENTS` input is only applicable if the `COMMAND` is `edit`.
@@ -505,7 +503,7 @@ symbol to select which client details you want to see, so that you can have a cl
 * A client's name and tags will be shown regardless of the identifiers that you specify.
 * You may use one or more optional identifiers.
 
-**Examples**: 
+**Example**: 
 
 *  Show a list of all clients with only their phone number and insurance policy information.
     * **Command to enter:** `list -p -i`
@@ -537,14 +535,13 @@ You may use optional identifiers in conjunction with the `-` symbol to limit the
 **Examples**:
 * Find all clients whose address contains the word `geylang`.
   * **Command to enter:** `find a/geylang`
+    <br><br>
 * Find the email and phone number of all clients whose names contain `alex` and `david` using the `&` symbol, and only display their email addresses and phone numbers.
   * `find n/alex & david -e -p`
   
-    <p align="center"><img src="images/find-alex-&-david-with-filter-annotate2.png" height="350"></p>
+    <p align="center"><img src="images/find-alex-&-david-with-filter-annotate2.png" height="300"></p>
 
 [Return to Table of Contents](#table-of-contents)
-<br><br>
-
 <div style="page-break-before:always"></div>
 ### <span style="color:#c93640"><code>policy</code>: Display policies associated with a client</span>
 
@@ -554,7 +551,7 @@ You may use optional identifiers in conjunction with the `-` symbol to limit the
 
 * Displays policies owned by the client at the specified `INDEX`.
 
-**Examples**:
+**Example**:
 * Display the policies associated with the second client in the currently displayed list.
     * **Command to enter:** `policy 2`  
 
@@ -634,7 +631,7 @@ and as many times as you want, which will save you from the hassle of having to 
 * Adds a shortcut named `SHORTCUT_NAME` to the shortcut library and assigns a valid ClientBook command `SHORTCUT_COMMAND` to it.
 * The `SHORTCUT_NAME` must be [alphanumeric](#glossary) without any spacing and must not already exist the shortcut library.
 
-**Examples**:
+**Example**:
 * Add a shortcut named `li` to represent the command `list -i` (filter all client information to show policy details 
   only) in the shortcut library.
     * **Command to enter:** `addshortcut sn/li sc/list -i`
@@ -652,7 +649,7 @@ and as many times as you want, which will save you from the hassle of having to 
 * Finds a shortcut named `SHORTCUT_NAME` in the shortcut library and replaces its existing command with the provided valid ClientBook command `SHORTCUT_COMMAND`.
 * The `SHORTCUT_NAME` must be [alphanumeric](#glossary) without any spacing and must exist in the shortcut library.
 
-**Examples**:
+**Example**:
 * Edit a shortcut named `ls` in the shortcut library such that it takes on a new command `list`.
     * **Command to enter:** `editshortcut sn/ls sc/list`
 
@@ -670,7 +667,7 @@ and as many times as you want, which will save you from the hassle of having to 
 * Finds a shortcut named `SHORTCUT_NAME` in the shortcut library and deletes it from the shortcut library.
 * The `SHORTCUT_NAME` must be [alphanumeric](#glossary) without any spacing and must exist in the shortcut library.
 
-**Examples**:
+**Example**:
 * Delete a shortcut named `ls` in the shortcut library.
     * **Command to enter:** `deleteshortcut ls`
 
@@ -863,7 +860,6 @@ If you get an error message (`Java command not found`), it means that Java is no
 [**Help**](#help-view-help) | `help` |
 [**Exit**](#exit-exit-clientbook) | `exit` |
 
-[Return to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
 
