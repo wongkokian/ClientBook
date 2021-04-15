@@ -139,8 +139,6 @@ Type a command in the command box and press Enter to execute it.
    | `delete 3` | Deletes the 3rd contact in the displayed list (i.e. deletes `Charlotte Oliveiro`) |
    | `exit` | Exits ClientBook |
 
-<br>
-
 Please refer to the [Feature-Description](#feature-description) section below for the full list of commands and their descriptions.
 
 [Return to Table of Contents](#table-of-contents)
@@ -225,7 +223,7 @@ to delete all the sample entries and start using your very own ClientBook.
 | [`policy`](#policy-display-policies-associated-with-a-client) | Display policies associated with a selected client |
 | [`sort`](#sort-sort-list-of-clients) | Sort the list of clients |
 
-
+<br><br>
 
 | Feature | Description |
 | ----------- | ----------- |
