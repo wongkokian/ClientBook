@@ -187,10 +187,6 @@ Now, if you scroll down the contact list, you should find James at the bottom of
 This command edits the phone number of the first client displayed in the contact list to 61234567. In this case, Alex Yeoh's
 phone number in ClientBook has been changed to 61234567.
 
-
-
-[Return to Table of Contents](#table-of-contents)
-
 <br>
 
 <p><b>Step 3.</b></p>
@@ -200,7 +196,7 @@ phone number in ClientBook has been changed to 61234567.
 
 This command deletes the contact of the third client displayed in the contact list.
 
-
+<div style="page-break-before:always"></div>
 ### Conclusion
 Now that you have tried out the basic commands available in ClientBook, you can use the command `batch delete 1,2,3,4,5,6,7`
 to delete all the sample entries and start using your very own ClientBook.
@@ -350,6 +346,8 @@ This section describes the features that ClientBook has and how to use them. The
   
 </div>
 
+[Return to Table of Contents](#table-of-contents)
+
 <div style="page-break-before:always"></div>
 
 ### <span style="color:#b573c9">Contact Management Features</span>
@@ -375,10 +373,8 @@ A client can have any number of tags and insurance policies (including 0).
       <br><br>
 * Example with no insurance policy and no tag
     * `add n/Betsy Crowe e/betsycrowe@email.com a/Kent Ridge p/61234567`
-
-[Return to Table of Contents](#table-of-contents)
 <br>
-
+    
 
 ### <span style="color:#b573c9"><code>edit</code>: Edit a client contact</span>
 
@@ -395,8 +391,6 @@ A client can have any number of tags and insurance policies (including 0).
 :exclamation: **Caution**: Existing values will be **replaced** with the input values.
 </div>
 
-[Return to Table of Contents](#table-of-contents)
-
 <div style="page-break-before:always"></div>
 
 **Examples**:
@@ -404,8 +398,8 @@ A client can have any number of tags and insurance policies (including 0).
     * **Command to enter:** `edit 1 p/91234567 e/johndoe@example.com`
     
       <p><img src="images/edit-annotate2.png" height="300"></p>
-    
 
+[Return to Table of Contents](#table-of-contents)
 
 ### <span style="color:#b573c9"><code>delete</code>: Delete a client contact</span>
 
@@ -418,9 +412,7 @@ A client can have any number of tags and insurance policies (including 0).
 **Examples**:
 * Delete the second client in the currently displayed list.
 	* **Command to enter:** `delete 2`
-
-
-
+      <br><br>
 * To easily delete a specific client "Charlotte Chan", `delete` can be used in conjunction with [`find`](#find-search-for-client-contacts-based-on-keywords).
     * First, enter the command `find n/Charlotte Chan` to look for all clients named "Charolotte Chan"
     * After we get the filtered list, use `delete 1` to delete the client "Charlotte Chan" from ClientBook.
@@ -436,7 +428,7 @@ enter the same command multiple times.
 
 **Format**: `batch COMMAND INDICES [ARGUMENTS]`
 
-* Only [`edit`](#edit-edit-a-client-contact) and [`delete`](#delete-delete-client-contact) commands can be executed in batch.
+* Only [`edit`](#edit-edit-a-client-contact) and [`delete`](#delete-delete-a-client-contact) commands can be executed in batch.
 * `INDICES` are comma-separated e.g. `1,2,3` or `1, 2, 3` and they refer to the index number shown in the displayed client list.
 * There must be no repeat index in `INDICES`.
 * The optional `ARGUMENTS` input is only applicable if the `COMMAND` is `edit`.
@@ -537,14 +529,13 @@ You may use optional identifiers in conjunction with the `-` symbol to limit the
 **Examples**:
 * Find all clients whose address contains the word `geylang`.
   * **Command to enter:** `find a/geylang`
+    <br><br>
 * Find the email and phone number of all clients whose names contain `alex` and `david` using the `&` symbol, and only display their email addresses and phone numbers.
   * `find n/alex & david -e -p`
   
-    <p align="center"><img src="images/find-alex-&-david-with-filter-annotate2.png" height="350"></p>
+    <p align="center"><img src="images/find-alex-&-david-with-filter-annotate2.png" height="300"></p>
 
 [Return to Table of Contents](#table-of-contents)
-<br><br>
-
 <div style="page-break-before:always"></div>
 ### <span style="color:#c93640"><code>policy</code>: Display policies associated with a client</span>
 
