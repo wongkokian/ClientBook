@@ -196,6 +196,8 @@ phone number in ClientBook has been changed to 61234567.
 
 This command deletes the contact of the third client displayed in the contact list.
 
+[Return to Table of Contents](#table-of-contents)
+
 <div style="page-break-before:always"></div>
 ### Conclusion
 Now that you have tried out the basic commands available in ClientBook, you can use the command `batch delete 1,2,3,4,5,6,7`
@@ -209,7 +211,6 @@ to delete all the sample entries and start using your very own ClientBook.
 
 ### Feature Summary 
 
-<br><br>
 
 | Feature | Description |
 | ----------- | ----------- |
@@ -224,6 +225,9 @@ to delete all the sample entries and start using your very own ClientBook.
 | [`find`](#find-search-for-client-contacts-based-on-keywords) | Search for client contacts based on keywords |
 | [`policy`](#policy-display-policies-associated-with-a-client) | Display policies associated with a selected client |
 | [`sort`](#sort-sort-list-of-clients) | Sort the list of clients |
+<div style="page-break-before:always"></div>
+| Feature | Description |
+| ----------- | ----------- |
 |<span style="color:#c9a500">**Shortcuts**</span>|
 | [`addshortcut`](#addshortcut-add-shortcut) | Add a shortcut |
 | [`editshortcut`](#editshortcut-edit-shortcut) | Edit a shortcut |
@@ -391,9 +395,11 @@ A client can have any number of tags and insurance policies (including 0).
 :exclamation: **Caution**: Existing values will be **replaced** with the input values.
 </div>
 
+[Return to Table of Contents](#table-of-contents)
+
 <div style="page-break-before:always"></div>
 
-**Examples**:
+**Example**:
 *  Edit the phone number and email address of the first client to be `91234567` and `johndoe@example.com` respectively.
     * **Command to enter:** `edit 1 p/91234567 e/johndoe@example.com`
     
@@ -497,7 +503,7 @@ symbol to select which client details you want to see, so that you can have a cl
 * A client's name and tags will be shown regardless of the identifiers that you specify.
 * You may use one or more optional identifiers.
 
-**Examples**: 
+**Example**: 
 
 *  Show a list of all clients with only their phone number and insurance policy information.
     * **Command to enter:** `list -p -i`
@@ -545,7 +551,7 @@ You may use optional identifiers in conjunction with the `-` symbol to limit the
 
 * Displays policies owned by the client at the specified `INDEX`.
 
-**Examples**:
+**Example**:
 * Display the policies associated with the second client in the currently displayed list.
     * **Command to enter:** `policy 2`  
 
@@ -625,7 +631,7 @@ and as many times as you want, which will save you from the hassle of having to 
 * Adds a shortcut named `SHORTCUT_NAME` to the shortcut library and assigns a valid ClientBook command `SHORTCUT_COMMAND` to it.
 * The `SHORTCUT_NAME` must be [alphanumeric](#glossary) without any spacing and must not already exist the shortcut library.
 
-**Examples**:
+**Example**:
 * Add a shortcut named `li` to represent the command `list -i` (filter all client information to show policy details 
   only) in the shortcut library.
     * **Command to enter:** `addshortcut sn/li sc/list -i`
@@ -643,7 +649,7 @@ and as many times as you want, which will save you from the hassle of having to 
 * Finds a shortcut named `SHORTCUT_NAME` in the shortcut library and replaces its existing command with the provided valid ClientBook command `SHORTCUT_COMMAND`.
 * The `SHORTCUT_NAME` must be [alphanumeric](#glossary) without any spacing and must exist in the shortcut library.
 
-**Examples**:
+**Example**:
 * Edit a shortcut named `ls` in the shortcut library such that it takes on a new command `list`.
     * **Command to enter:** `editshortcut sn/ls sc/list`
 
@@ -661,7 +667,7 @@ and as many times as you want, which will save you from the hassle of having to 
 * Finds a shortcut named `SHORTCUT_NAME` in the shortcut library and deletes it from the shortcut library.
 * The `SHORTCUT_NAME` must be [alphanumeric](#glossary) without any spacing and must exist in the shortcut library.
 
-**Examples**:
+**Example**:
 * Delete a shortcut named `ls` in the shortcut library.
     * **Command to enter:** `deleteshortcut ls`
 
@@ -854,7 +860,6 @@ If you get an error message (`Java command not found`), it means that Java is no
 [**Help**](#help-view-help) | `help` |
 [**Exit**](#exit-exit-clientbook) | `exit` |
 
-[Return to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
 
