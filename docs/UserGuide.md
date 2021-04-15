@@ -224,7 +224,7 @@ to delete all the sample entries and start using your very own ClientBook.
 | [`sort`](#sort-sort-list-of-clients) | Sort the list of clients |
 
 
-[Return to Table of Contents](#table-of-contents)
+
 <br><br><br><br>
 
 | Feature | Description |
