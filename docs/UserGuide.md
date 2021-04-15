@@ -223,7 +223,9 @@ to delete all the sample entries and start using your very own ClientBook.
 | [`policy`](#policy-display-policies-associated-with-a-client) | Display policies associated with a selected client |
 | [`sort`](#sort-sort-list-of-clients) | Sort the list of clients |
 
-<br><br>
+
+[Return to Table of Contents](#table-of-contents)
+<br><br><br><br>
 
 | Feature | Description |
 | ----------- | ----------- |
@@ -404,7 +406,6 @@ A client can have any number of tags and insurance policies (including 0).
     
       <p><img src="images/edit-annotate2.png" height="300"></p>
 
-[Return to Table of Contents](#table-of-contents)
 
 ### <span style="color:#b573c9"><code>delete</code>: Delete a client contact</span>
 
