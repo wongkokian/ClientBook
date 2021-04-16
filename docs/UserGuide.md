@@ -75,7 +75,7 @@ Please use the table of contents to navigate through the user guide quickly. Cli
         * [**5.1.5** `meet`: Schedule a meeting with a client](#meet-schedule-a-meeting-with-a-client)
     * [<span style="color:#c93640">**5.2** Contact Viewing</span>](#contact-viewing-features)
         * [**5.2.1** `list`: List all clients](#list-list-all-clients)
-        * [**5.2.2** `find`: Search for client contacts based on keywords](#find-search-for-clients-contact-based-on-keywords)
+        * [**5.2.2** `find`: Search for client contacts based on keywords](#find-search-for-client-contacts-based-on-keywords)
         * [**5.2.3** `policy`: Display policies associated with a client](#policy-display-policies-associated-with-a-client)
         * [**5.2.4** `sort`: Sort the list of clients](#sort-sort-list-of-clients)
     * [<span style="color:#c9a500">**5.3** Shortcuts</span>](#shortcuts) 
@@ -91,7 +91,7 @@ Please use the table of contents to navigate through the user guide quickly. Cli
         * [**5.4.4** `exit`: Exiting the program](#exit-exit-clientbook)
         * [**5.4.5** Keyboard commands](#keyboard-commands)
         * [**5.4.5** Saving data](#saving-data)
-        * [**5.4.6** Upcoming features!](#upcoming-features-v20-and-beyond)
+    * [**5.5** Upcoming features!](#upcoming-features-v20-and-beyond)
 * [**6.** Frequently Asked Questions](#frequently-asked-questions)
   * [**6.1** Setting Up](#setting-up)
 * [**7.** Summary of Commands](#summary-of-commands)
@@ -164,7 +164,7 @@ Type a command in the command box and press Enter to execute it.
    | `delete 3` | Deletes the 3rd contact in the displayed list (i.e. deletes `Charlotte Oliveiro`) |
    | `exit` | Exits ClientBook |
 
-Please refer to the [Feature-Description](#feature-description) section below for the full list of commands and their descriptions.
+Please refer to the [Feature Description](#feature-description) section below for the full list of commands and their descriptions.
 
 [Return to Table of Contents](#table-of-contents)
 
@@ -282,7 +282,7 @@ which correspond to client attributes as well as restrictions that have to be fo
 <table>
   <tr>
     <td> <b>Attribute</b> </td>
-    <td> <b>Identifier(s)</b> </td>
+    <td> <b>Identifier</b> </td>
     <td> <b>Notes</b> </td>
   </tr>
   <tr>
@@ -335,11 +335,10 @@ which correspond to client attributes as well as restrictions that have to be fo
         <ul><li><code>DATE</code>: dd.MM.yyyy</li></ul>
         <ul><li><code>START_TIME</code> and <code>END_TIME</code>: HH:mm</li></ul>
         </ul>
-        <ul><li><b>Example:</b> <code>20.05.2021 15:30 16:30 Raffles Place MRT</code></li></ul>
+        <ul><li><b>Example:</b> <code>20.05.2021 15:30 16:30 MRT</code></li></ul>
     </td>
   </tr>
 </table>
-
 [Return to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
@@ -830,7 +829,7 @@ Please do not make changes to the data file. If the format is invalid, **all you
 
 <div style="page-break-before:always"></div>
 
-### Upcoming features (v2.0 and beyond!)
+### Upcoming Features (v2.0 and beyond!)
 
 * Archiving data files
 * Customisable user interface
