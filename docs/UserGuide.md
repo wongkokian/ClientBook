@@ -103,10 +103,10 @@ Please use the table of contents to navigate through the user guide quickly. Cli
 
 <p align="center"><img src="images/Ui-annotate-new.png"></p>
 
-ClientBook makes use of a graphical user interface to facilitate in helping you manage your client contacts better. This
+ClientBook makes use of a [graphical user interface](#glossary) to help you manage your client contacts better. This 
 section provides you with a better understanding of what each component of ClientBook's user interface does for you.
 
-ClientBook's graphical user interface is made up of 4 main components:
+ClientBook's [graphical user interface](#glossary) is made up of 4 main components:
 1. Menu Bar
    * Allows you to get help about how to use ClientBook or exit the application.
 2. Command Box
