@@ -60,7 +60,7 @@ Please use the table of contents to navigate through the user guide quickly. Cli
 <span style="color:#c9a500">**shortcuts**</span> and 
 <span style="color:#3cb44b">**general**</span> commands.
 
-* [**1.** User Interface](#user-inteface)
+* [**1.** User Interface](#user-interface)
 * [**2.** Quick Start](#quick-start)
 * [**3.** Example Usage](#example-usage)
 * [**4.** Overview](#overview)
